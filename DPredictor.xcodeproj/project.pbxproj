@@ -22,6 +22,9 @@
 		42FDCD76190052CC0069CA4F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FDCD5A190052CC0069CA4F /* CoreData.framework */; };
 		42FDCD7E190052CC0069CA4F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42FDCD7C190052CC0069CA4F /* InfoPlist.strings */; };
 		42FDCD80190052CC0069CA4F /* DPredictorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD7F190052CC0069CA4F /* DPredictorTests.m */; };
+		42FDCD8B19005B620069CA4F /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD8A19005B620069CA4F /* Food.m */; };
+		42FDCD8E19005B720069CA4F /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD8D19005B720069CA4F /* Meal.m */; };
+		42FDCD9119005B840069CA4F /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD9019005B840069CA4F /* Record.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		42FDCD7B190052CC0069CA4F /* DPredictorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DPredictorTests-Info.plist"; sourceTree = "<group>"; };
 		42FDCD7D190052CC0069CA4F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		42FDCD7F190052CC0069CA4F /* DPredictorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPredictorTests.m; sourceTree = "<group>"; };
+		42FDCD8919005B620069CA4F /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		42FDCD8A19005B620069CA4F /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
+		42FDCD8C19005B720069CA4F /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meal.h; sourceTree = "<group>"; };
+		42FDCD8D19005B720069CA4F /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
+		42FDCD8F19005B840069CA4F /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		42FDCD9019005B840069CA4F /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +129,12 @@
 				42FDCD6B190052CC0069CA4F /* Images.xcassets */,
 				42FDCD68190052CC0069CA4F /* DPredictor.xcdatamodeld */,
 				42FDCD5D190052CC0069CA4F /* Supporting Files */,
+				42FDCD8919005B620069CA4F /* Food.h */,
+				42FDCD8A19005B620069CA4F /* Food.m */,
+				42FDCD8C19005B720069CA4F /* Meal.h */,
+				42FDCD8D19005B720069CA4F /* Meal.m */,
+				42FDCD8F19005B840069CA4F /* Record.h */,
+				42FDCD9019005B840069CA4F /* Record.m */,
 			);
 			path = DPredictor;
 			sourceTree = "<group>";
@@ -248,8 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FDCD8E19005B720069CA4F /* Meal.m in Sources */,
 				42FDCD67190052CC0069CA4F /* AppDelegate.m in Sources */,
+				42FDCD8B19005B620069CA4F /* Food.m in Sources */,
 				42FDCD6A190052CC0069CA4F /* DPredictor.xcdatamodeld in Sources */,
+				42FDCD9119005B840069CA4F /* Record.m in Sources */,
 				42FDCD63190052CC0069CA4F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
