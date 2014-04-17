@@ -1,0 +1,13 @@
+//
+//  Records.m
+//  DPredictor
+//
+//  Created by Joshua Primas on 4/17/14.
+//  Copyright (c) 2014 Joshua Primas. All rights reserved.
+//
+
+#import "Records.h"
+
+@implementation Records
+
+@end

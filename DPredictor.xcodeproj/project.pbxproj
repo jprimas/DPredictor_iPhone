@@ -25,6 +25,9 @@
 		42FDCD8B19005B620069CA4F /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD8A19005B620069CA4F /* Food.m */; };
 		42FDCD8E19005B720069CA4F /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD8D19005B720069CA4F /* Meal.m */; };
 		42FDCD9119005B840069CA4F /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD9019005B840069CA4F /* Record.m */; };
+		42FDCD9619005EB30069CA4F /* Foods.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD9519005EB30069CA4F /* Foods.m */; };
+		42FDCD9919005EC50069CA4F /* Meals.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD9819005EC50069CA4F /* Meals.m */; };
+		42FDCD9F190069A80069CA4F /* Records.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD9E190069A80069CA4F /* Records.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,12 @@
 		42FDCD8D19005B720069CA4F /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
 		42FDCD8F19005B840069CA4F /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		42FDCD9019005B840069CA4F /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		42FDCD9419005EB30069CA4F /* Foods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foods.h; sourceTree = "<group>"; };
+		42FDCD9519005EB30069CA4F /* Foods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Foods.m; sourceTree = "<group>"; };
+		42FDCD9719005EC50069CA4F /* Meals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meals.h; sourceTree = "<group>"; };
+		42FDCD9819005EC50069CA4F /* Meals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meals.m; sourceTree = "<group>"; };
+		42FDCD9D190069A80069CA4F /* Records.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Records.h; sourceTree = "<group>"; };
+		42FDCD9E190069A80069CA4F /* Records.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Records.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,12 +138,7 @@
 				42FDCD6B190052CC0069CA4F /* Images.xcassets */,
 				42FDCD68190052CC0069CA4F /* DPredictor.xcdatamodeld */,
 				42FDCD5D190052CC0069CA4F /* Supporting Files */,
-				42FDCD8919005B620069CA4F /* Food.h */,
-				42FDCD8A19005B620069CA4F /* Food.m */,
-				42FDCD8C19005B720069CA4F /* Meal.h */,
-				42FDCD8D19005B720069CA4F /* Meal.m */,
-				42FDCD8F19005B840069CA4F /* Record.h */,
-				42FDCD9019005B840069CA4F /* Record.m */,
+				42FDCD9319005E750069CA4F /* Entities */,
 			);
 			path = DPredictor;
 			sourceTree = "<group>";
@@ -166,6 +170,25 @@
 				42FDCD7C190052CC0069CA4F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		42FDCD9319005E750069CA4F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				42FDCD8919005B620069CA4F /* Food.h */,
+				42FDCD8A19005B620069CA4F /* Food.m */,
+				42FDCD9419005EB30069CA4F /* Foods.h */,
+				42FDCD9519005EB30069CA4F /* Foods.m */,
+				42FDCD8C19005B720069CA4F /* Meal.h */,
+				42FDCD8D19005B720069CA4F /* Meal.m */,
+				42FDCD9719005EC50069CA4F /* Meals.h */,
+				42FDCD9819005EC50069CA4F /* Meals.m */,
+				42FDCD8F19005B840069CA4F /* Record.h */,
+				42FDCD9019005B840069CA4F /* Record.m */,
+				42FDCD9D190069A80069CA4F /* Records.h */,
+				42FDCD9E190069A80069CA4F /* Records.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,9 +289,12 @@
 				42FDCD8E19005B720069CA4F /* Meal.m in Sources */,
 				42FDCD67190052CC0069CA4F /* AppDelegate.m in Sources */,
 				42FDCD8B19005B620069CA4F /* Food.m in Sources */,
+				42FDCD9619005EB30069CA4F /* Foods.m in Sources */,
+				42FDCD9919005EC50069CA4F /* Meals.m in Sources */,
 				42FDCD6A190052CC0069CA4F /* DPredictor.xcdatamodeld in Sources */,
 				42FDCD9119005B840069CA4F /* Record.m in Sources */,
 				42FDCD63190052CC0069CA4F /* main.m in Sources */,
+				42FDCD9F190069A80069CA4F /* Records.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

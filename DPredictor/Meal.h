@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+@class Record;
 
 
 @interface Meal : NSManagedObject
@@ -25,8 +26,8 @@
 
 @interface Meal (CoreDataGeneratedAccessors)
 
-- (void)addRecordsObject:(NSManagedObject *)value;
-- (void)removeRecordsObject:(NSManagedObject *)value;
+- (void)addRecord:(Record *)record;
+- (void)removeRecord:(Record *)record;
 - (void)addRecords:(NSSet *)values;
 - (void)removeRecords:(NSSet *)values;
 

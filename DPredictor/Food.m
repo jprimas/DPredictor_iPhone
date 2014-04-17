@@ -19,6 +19,13 @@
 @dynamic score;
 @dynamic createdAt;
 @dynamic updatedAt;
-@dynamic records;
+
+- (void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    NSDate *currentDate = [NSDate date];
+    self.createdAt = currentDate;
+    self.updatedAt = currentDate;
+}
 
 @end

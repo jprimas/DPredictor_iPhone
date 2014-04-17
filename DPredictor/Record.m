@@ -22,4 +22,13 @@
 @dynamic meal;
 @dynamic food;
 
+- (void)awakeFromInsert
+{
+    [super awakeFromInsert];
+    NSDate *currentDate = [NSDate date];
+    self.createdAt = currentDate;
+    self.updatedAt = currentDate;
+    
+}
+
 @end
