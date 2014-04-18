@@ -28,8 +28,8 @@
         <attribute name="item" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" syncable="YES"/>
-        <relationship name="meal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="records" inverseEntity="Meal" syncable="YES"/>
+        <relationship name="food" maxCount="1" deletionRule="Nullify" destinationEntity="Food" syncable="YES"/>
+        <relationship name="meal" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="records" inverseEntity="Meal" syncable="YES"/>
     </entity>
     <elements>
         <element name="Meal" positionX="-63" positionY="-18" width="128" height="178"/>

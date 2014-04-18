@@ -13,11 +13,11 @@
 
 @interface Meal : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * totalCarbs;
-@property (nonatomic, retain) NSNumber * levelBefore;
-@property (nonatomic, retain) NSNumber * levelAfter;
-@property (nonatomic, retain) NSNumber * unitsTaken;
-@property (nonatomic, retain) NSNumber * unitsPredicted;
+@property (nonatomic) double totalCarbs;
+@property (nonatomic) int levelBefore;
+@property (nonatomic) int levelAfter;
+@property (nonatomic) int unitsTaken;
+@property (nonatomic) int unitsPredicted;
 @property (nonatomic, retain) NSString * mealType;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * updatedAt;

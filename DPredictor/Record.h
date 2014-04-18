@@ -14,8 +14,8 @@
 @interface Record : NSManagedObject
 
 @property (nonatomic, retain) NSString * item;
-@property (nonatomic, retain) NSNumber * carbs;
-@property (nonatomic, retain) NSNumber * amount;
+@property (nonatomic) double carbs;
+@property (nonatomic) double amount;
 @property (nonatomic, retain) NSString * quantifier;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * updatedAt;

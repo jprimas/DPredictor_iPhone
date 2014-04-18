@@ -25,9 +25,12 @@
 		42FDCD8B19005B620069CA4F /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD8A19005B620069CA4F /* Food.m */; };
 		42FDCD8E19005B720069CA4F /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD8D19005B720069CA4F /* Meal.m */; };
 		42FDCD9119005B840069CA4F /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD9019005B840069CA4F /* Record.m */; };
-		42FDCD9619005EB30069CA4F /* Foods.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD9519005EB30069CA4F /* Foods.m */; };
-		42FDCD9919005EC50069CA4F /* Meals.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD9819005EC50069CA4F /* Meals.m */; };
-		42FDCD9F190069A80069CA4F /* Records.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCD9E190069A80069CA4F /* Records.m */; };
+		42FDCDA2190077D00069CA4F /* DatabaseConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCDA1190077D00069CA4F /* DatabaseConnector.m */; };
+		42FDCDA619007C510069CA4F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCDA419007C510069CA4F /* MenuViewController.m */; };
+		42FDCDA719007C510069CA4F /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FDCDA519007C510069CA4F /* MenuViewController.xib */; };
+		42FDCDAB190081A10069CA4F /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCDA9190081A10069CA4F /* UserViewController.m */; };
+		42FDCDAC190081A10069CA4F /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FDCDAA190081A10069CA4F /* UserViewController.xib */; };
+		42FDCDB0190099D30069CA4F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCDAF190099D20069CA4F /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,12 +68,16 @@
 		42FDCD8D19005B720069CA4F /* Meal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meal.m; sourceTree = "<group>"; };
 		42FDCD8F19005B840069CA4F /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		42FDCD9019005B840069CA4F /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
-		42FDCD9419005EB30069CA4F /* Foods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foods.h; sourceTree = "<group>"; };
-		42FDCD9519005EB30069CA4F /* Foods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Foods.m; sourceTree = "<group>"; };
-		42FDCD9719005EC50069CA4F /* Meals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meals.h; sourceTree = "<group>"; };
-		42FDCD9819005EC50069CA4F /* Meals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meals.m; sourceTree = "<group>"; };
-		42FDCD9D190069A80069CA4F /* Records.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Records.h; sourceTree = "<group>"; };
-		42FDCD9E190069A80069CA4F /* Records.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Records.m; sourceTree = "<group>"; };
+		42FDCDA0190077D00069CA4F /* DatabaseConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseConnector.h; sourceTree = "<group>"; };
+		42FDCDA1190077D00069CA4F /* DatabaseConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseConnector.m; sourceTree = "<group>"; };
+		42FDCDA319007C510069CA4F /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		42FDCDA419007C510069CA4F /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		42FDCDA519007C510069CA4F /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		42FDCDA8190081A10069CA4F /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		42FDCDA9190081A10069CA4F /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		42FDCDAA190081A10069CA4F /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		42FDCDAE190099D20069CA4F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		42FDCDAF190099D20069CA4F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,10 +142,14 @@
 			children = (
 				42FDCD65190052CC0069CA4F /* AppDelegate.h */,
 				42FDCD66190052CC0069CA4F /* AppDelegate.m */,
+				42FDCDA319007C510069CA4F /* MenuViewController.h */,
+				42FDCDA419007C510069CA4F /* MenuViewController.m */,
+				42FDCDA519007C510069CA4F /* MenuViewController.xib */,
 				42FDCD6B190052CC0069CA4F /* Images.xcassets */,
 				42FDCD68190052CC0069CA4F /* DPredictor.xcdatamodeld */,
 				42FDCD5D190052CC0069CA4F /* Supporting Files */,
 				42FDCD9319005E750069CA4F /* Entities */,
+				42FDCDAD190084400069CA4F /* UserData */,
 			);
 			path = DPredictor;
 			sourceTree = "<group>";
@@ -177,18 +188,26 @@
 			children = (
 				42FDCD8919005B620069CA4F /* Food.h */,
 				42FDCD8A19005B620069CA4F /* Food.m */,
-				42FDCD9419005EB30069CA4F /* Foods.h */,
-				42FDCD9519005EB30069CA4F /* Foods.m */,
 				42FDCD8C19005B720069CA4F /* Meal.h */,
 				42FDCD8D19005B720069CA4F /* Meal.m */,
-				42FDCD9719005EC50069CA4F /* Meals.h */,
-				42FDCD9819005EC50069CA4F /* Meals.m */,
 				42FDCD8F19005B840069CA4F /* Record.h */,
 				42FDCD9019005B840069CA4F /* Record.m */,
-				42FDCD9D190069A80069CA4F /* Records.h */,
-				42FDCD9E190069A80069CA4F /* Records.m */,
+				42FDCDA0190077D00069CA4F /* DatabaseConnector.h */,
+				42FDCDA1190077D00069CA4F /* DatabaseConnector.m */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		42FDCDAD190084400069CA4F /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				42FDCDA8190081A10069CA4F /* UserViewController.h */,
+				42FDCDA9190081A10069CA4F /* UserViewController.m */,
+				42FDCDAA190081A10069CA4F /* UserViewController.xib */,
+				42FDCDAE190099D20069CA4F /* User.h */,
+				42FDCDAF190099D20069CA4F /* User.m */,
+			);
+			name = UserData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				42FDCD61190052CC0069CA4F /* InfoPlist.strings in Resources */,
+				42FDCDAC190081A10069CA4F /* UserViewController.xib in Resources */,
+				42FDCDA719007C510069CA4F /* MenuViewController.xib in Resources */,
 				42FDCD6C190052CC0069CA4F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,15 +307,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FDCDB0190099D30069CA4F /* User.m in Sources */,
+				42FDCDAB190081A10069CA4F /* UserViewController.m in Sources */,
+				42FDCDA2190077D00069CA4F /* DatabaseConnector.m in Sources */,
 				42FDCD8E19005B720069CA4F /* Meal.m in Sources */,
 				42FDCD67190052CC0069CA4F /* AppDelegate.m in Sources */,
+				42FDCDA619007C510069CA4F /* MenuViewController.m in Sources */,
 				42FDCD8B19005B620069CA4F /* Food.m in Sources */,
-				42FDCD9619005EB30069CA4F /* Foods.m in Sources */,
-				42FDCD9919005EC50069CA4F /* Meals.m in Sources */,
 				42FDCD6A190052CC0069CA4F /* DPredictor.xcdatamodeld in Sources */,
 				42FDCD9119005B840069CA4F /* Record.m in Sources */,
 				42FDCD63190052CC0069CA4F /* main.m in Sources */,
-				42FDCD9F190069A80069CA4F /* Records.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
