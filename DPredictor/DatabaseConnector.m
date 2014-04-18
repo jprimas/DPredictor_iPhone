@@ -17,7 +17,7 @@
 
 @implementation DatabaseConnector
 
-+ (instancetype)getSharedAccessor
++ (instancetype)getSharedDBAccessor
 {
     static DatabaseConnector *sharedAccessor = nil;
     

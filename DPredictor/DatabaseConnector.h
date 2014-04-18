@@ -14,7 +14,7 @@
 
 @interface DatabaseConnector : NSObject
 
-+ (instancetype) getSharedAccessor;
++ (instancetype) getSharedDBAccessor;
 - (BOOL)saveChanges;
 
 //Methods to do with Food Entity

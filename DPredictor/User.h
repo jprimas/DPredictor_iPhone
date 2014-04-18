@@ -20,7 +20,9 @@
 @property (nonatomic) int lunchCorrectionScore;
 @property (nonatomic) double dinnerCorrection;
 @property (nonatomic) int dinnerCorrectionScore;
+@property (nonatomic) BOOL fromStorage;
 
++ (instancetype)getSharedUserAccessor;
 - (BOOL)saveChanges;
 
 @end

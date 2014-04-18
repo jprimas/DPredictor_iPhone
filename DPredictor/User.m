@@ -10,17 +10,33 @@
 
 @implementation User
 
-- (id) init {
-    if (self = [super init]) {
-        NSString *path = [self userArchivePath];
-        User *u = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
-        if (u.carbsPerUnit > 0) {
-            return u;
-        }else{
-            NSLog(@"Create new User");
-            self.carbsPerUnit = 2.0f;
-            NSLog(@"first save: %f", self.carbsPerUnit);
++ (instancetype)getSharedUserAccessor
+{
+    static User *sharedUser = nil;
+    
+    if (!sharedUser) {
+        sharedUser = [[self alloc] initPrivate];
+    }
+    
+    return sharedUser;
+}
+
+- (instancetype)init
+{
+    @throw [NSException exceptionWithName:@"Singleton"
+                                   reason:@"Use +[Results sharedResultsAccessor]"
+                                 userInfo:nil];
+    return nil;
+}
+
+- (id) initPrivate {
+    NSString *path = [self userArchivePath];
+    User *u = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if(u && u.fromStorage){
+        self = u;
+    }else{
+        if (self = [super init]) {
+            self.carbsPerUnit = 0.0f;
             self.carbsPerUnitScore = 1;
             self.sugarsPerUnit = 0.0f;
             self.sugarsPerUnitScore = 1;
@@ -30,6 +46,7 @@
             self.lunchCorrectionScore = 1;
             self.dinnerCorrection = 0.0f;
             self.dinnerCorrectionScore = 1;
+            self.fromStorage = NO;
         }
     }
     return self;
@@ -46,6 +63,7 @@
     [aCoder encodeInt:self.lunchCorrectionScore forKey:@"lunchCorrectionScore"];
     [aCoder encodeInt:self.dinnerCorrection forKey:@"dinnerCorrection"];
     [aCoder encodeInt:self.dinnerCorrectionScore forKey:@"dinnerCorrectionScore"];
+    [aCoder encodeInt:self.fromStorage forKey:@"fromStorage"];
 }
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
@@ -61,6 +79,7 @@
         self.lunchCorrectionScore = [aDecoder decodeIntForKey:@"lunchCorrectionScore"];
         self.dinnerCorrection = [aDecoder decodeIntForKey:@"dinnerCorrection"];
         self.dinnerCorrectionScore = [aDecoder decodeIntForKey:@"dinnerCorrectionScore"];
+        self.fromStorage = [aDecoder decodeIntForKey:@"fromStorage"];
     }
     return self;
 }
@@ -76,7 +95,7 @@
 }
 
 - (BOOL)saveChanges {
-    NSLog(@"Save User");
+    self.fromStorage = YES;
     NSString *path = [self userArchivePath];
     return [NSKeyedArchiver archiveRootObject:self
                                        toFile:path];
