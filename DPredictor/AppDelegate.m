@@ -24,7 +24,11 @@
     MenuViewController *menuVC = [[MenuViewController alloc]init];
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:menuVC];
-    navController.navigationBar.hidden = YES;
+    //navController.navigationBar.hidden = YES;
+    navController.navigationBar.tintColor = [UIColor whiteColor];
+    navController.navigationBar.barTintColor = [UIColor colorWithRed:0/255.0 green:82/255.0 blue:235/255.0 alpha:1];
+    [navController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    navController.navigationBar.translucent = NO;
     self.window.rootViewController = navController;
     
     [self.window makeKeyAndVisible];
