@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
 @class Meal;
 
-@interface EditMealViewController : UIViewController
+@interface EditMealViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate>
 
 @property (atomic, strong) Meal *meal;
 

@@ -67,9 +67,9 @@
 {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 10)];
     [headerView setBackgroundColor:[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:.9]];
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 7, tableView.bounds.size.width, 10)];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 33)];
     headerLabel.text = @"M e a l   T i m e s";
-    headerLabel.font = [UIFont fontWithName: @"Helvetica-Bold" size: 8.0  ];
+    headerLabel.font = [UIFont fontWithName: @"Helvetica-Bold" size: 12.0  ];
     headerLabel.textAlignment = NSTextAlignmentCenter;
     [headerView addSubview:headerLabel];
     return headerView;
