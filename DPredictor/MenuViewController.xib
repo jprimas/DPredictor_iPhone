@@ -21,6 +21,9 @@
                     <state key="normal" title="Add New Meal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="addMeal:" destination="-1" eventType="touchUpInside" id="ifT-kJ-fQ0"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PB-NX-7ln" customClass="BorderButton">
                     <rect key="frame" x="20" y="252" width="280" height="30"/>

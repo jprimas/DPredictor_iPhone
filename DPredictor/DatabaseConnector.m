@@ -90,4 +90,12 @@
     return successful;
 }
 
+- (Meal *)createMeal{
+    
+    Meal *meal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
+                                                 inManagedObjectContext:self.context];
+    
+    return meal;
+}
+
 @end

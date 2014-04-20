@@ -11,7 +11,7 @@
 
 @interface User2ViewController ()
 
-@property (nonatomic, strong) User *user;
+@property (atomic, strong) User *user;
 
 @property (nonatomic, weak) IBOutlet
 UITextField *inputField;
@@ -42,7 +42,7 @@ UILabel *clarificationLabel;
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     self.title = @"Personalize";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(backButtonPress)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRedo target:self action:@selector(backButtonPress)];
     
     self.titleLabel.text = @"One more but of info...";
     self.descriptionLabel.text = @"Sugars Per Unit of Insulin";

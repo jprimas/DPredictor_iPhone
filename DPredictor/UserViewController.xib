@@ -19,26 +19,26 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P45-9D-CKY">
-                    <rect key="frame" x="42" y="93" width="97" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P45-9D-CKY">
+                    <rect key="frame" x="42" y="142" width="97" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                 </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Carbs Per Unit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDy-d5-ei2">
-                    <rect key="frame" x="20" y="49" width="280" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Carbs Per Unit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDy-d5-ei2">
+                    <rect key="frame" x="20" y="98" width="280" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome, Enter Initial Data!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FL-QY-uSI">
-                    <rect key="frame" x="20" y="-5" width="280" height="51"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome, Enter Initial Info!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FL-QY-uSI">
+                    <rect key="frame" x="20" y="17" width="280" height="51"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd2-b7-8Ls" customClass="BorderButton">
-                    <rect key="frame" x="186" y="93" width="86" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xd2-b7-8Ls" customClass="BorderButton">
+                    <rect key="frame" x="186" y="142" width="86" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.71847401489999996" green="0.68428627890000004" blue="0.68886730409999997" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Next">
@@ -48,9 +48,12 @@
                         <action selector="nextButtonPress:" destination="-1" eventType="touchUpInside" id="5RW-pf-zaF"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="8QZ-Wc-Qrd">
-                    <rect key="frame" x="20" y="129" width="280" height="80"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="8QZ-Wc-Qrd">
+                    <rect key="frame" x="20" y="198" width="280" height="94"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="wyg-WG-8ew"/>
+                    </constraints>
                     <string key="text">Input the amount of carbs that one unit of insuln compensates for. This can be your best estimate. The algorithm builds off this value.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="highlightedColor"/>
@@ -58,6 +61,14 @@
             </subviews>
             <color key="backgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
             <color key="tintColor" red="0.30196079611778259" green="0.58039218187332153" blue="0.98823535442352295" alpha="1" colorSpace="deviceRGB"/>
+            <constraints>
+                <constraint firstItem="8QZ-Wc-Qrd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Xd2-b7-8Ls" secondAttribute="bottom" constant="1" id="DNr-qa-SqU"/>
+                <constraint firstAttribute="bottom" secondItem="8QZ-Wc-Qrd" secondAttribute="bottom" constant="212" id="Rs0-po-fPd"/>
+                <constraint firstItem="Xd2-b7-8Ls" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eDy-d5-ei2" secondAttribute="bottom" constant="3" id="eUi-nZ-Jit"/>
+                <constraint firstItem="eDy-d5-ei2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1FL-QY-uSI" secondAttribute="bottom" constant="15" id="rWp-be-y89"/>
+                <constraint firstItem="P45-9D-CKY" firstAttribute="top" secondItem="Xd2-b7-8Ls" secondAttribute="top" id="vgt-8w-C0I"/>
+                <constraint firstItem="P45-9D-CKY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eDy-d5-ei2" secondAttribute="bottom" constant="10" id="xvR-fi-SyZ"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

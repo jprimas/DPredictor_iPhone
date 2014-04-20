@@ -7,6 +7,7 @@
 //
 
 #import "EditMealViewController.h"
+#import "Meal.h"
 
 @interface EditMealViewController ()
 
@@ -18,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -26,13 +27,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.hidesBackButton = YES;
+    self.title = @"Add Food";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(backButtonPress)];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)backButtonPress{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

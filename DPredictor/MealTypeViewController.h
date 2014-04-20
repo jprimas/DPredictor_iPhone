@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Meal;
 
-@interface MealTypeViewController : UIViewController
+@interface MealTypeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (atomic, strong) Meal *meal;
 
 @end

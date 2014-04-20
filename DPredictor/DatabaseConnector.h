@@ -27,6 +27,7 @@
 - (Food *)getFoodWithId:(NSManagedObjectID *)id;
 
 //Methods to do with Meal Entity
+- (Meal *)createMeal;
 - (Meal *) addMealWithTotalCarbs:(double)totalCarbs
                      levelBefore:(int)levelBefore
                       levelAfter:(int)levelAfter

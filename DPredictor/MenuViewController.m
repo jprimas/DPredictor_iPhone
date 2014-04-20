@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import "UserViewController.h"
+#import "MealTypeViewController.h"
 
 @interface MenuViewController ()
 
@@ -39,6 +40,11 @@
 - (IBAction)editUser:(id)sender{
     UserViewController *userVC = [[UserViewController alloc] init];
     [self.navigationController pushViewController:userVC animated:NO];
+}
+
+-(IBAction)addMeal:(id)sender{
+    MealTypeViewController *mealVC = [[MealTypeViewController alloc] init];
+    [self.navigationController pushViewController:mealVC animated:YES];
 }
 
 @end

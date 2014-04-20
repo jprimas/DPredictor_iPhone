@@ -12,7 +12,7 @@
 
 @interface UserViewController ()
 
-@property (nonatomic, strong) User *user;
+@property (atomic, strong) User *user;
 
 @property (nonatomic, weak) IBOutlet
 UITextField *inputField;

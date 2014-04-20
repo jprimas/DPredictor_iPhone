@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Meal;
 
 @interface EditMealViewController : UIViewController
+
+@property (atomic, strong) Meal *meal;
 
 @end
