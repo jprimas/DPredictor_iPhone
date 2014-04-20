@@ -9,7 +9,9 @@
 #import "Meal.h"
 
 
-@implementation Meal
+@implementation Meal{
+    NSMutableSet *_privRecords;
+}
 
 @dynamic totalCarbs;
 @dynamic levelBefore;
@@ -29,5 +31,15 @@
     self.updatedAt = currentDate;
     
 }
+
+- (void)addRecord:(Record *)record{
+    
+}
+
+
+- (void)removeRecord:(Record *)record;{
+    
+}
+
 
 @end

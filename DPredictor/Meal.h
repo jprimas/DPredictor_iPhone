@@ -28,7 +28,7 @@
 
 - (void)addRecord:(Record *)record;
 - (void)removeRecord:(Record *)record;
-- (void)addRecords:(NSSet *)values;
-- (void)removeRecords:(NSSet *)values;
+//- (void)addRecords:(NSSet *)values;
+//- (void)removeRecords:(NSSet *)values;
 
 @end

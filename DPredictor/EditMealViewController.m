@@ -8,6 +8,7 @@
 
 #import "EditMealViewController.h"
 #import "SWTableViewCell.h"
+#import "AddFoodViewController.h"
 #import "Meal.h"
 
 @interface EditMealViewController (){
@@ -15,6 +16,8 @@
 }
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (nonatomic, weak) IBOutlet UILabel *errorLabel;
 
 @end
 
@@ -24,7 +27,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _records = [NSMutableArray arrayWithObjects:@"Josh", @"Rosie", @"Andrew", @"bonnie", nil];
     }
     return self;
 }
@@ -43,6 +45,20 @@
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    self.errorLabel.hidden = YES;
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (self.meal.levelBefore != 0) {
+        self.textField.text = [NSString stringWithFormat:@"%d", self.meal.levelBefore ];
+    }
+    if([self.meal.records count] > 0){
+        _records = [[NSMutableArray alloc] initWithArray:[self.meal.records allObjects]];
+    }else{
+        _records = [[NSMutableArray alloc] init];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,7 +68,28 @@
 }
 
 - (void)backButtonPress{
+    
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)addFood{
+    AddFoodViewController *addFoodVC = [[AddFoodViewController alloc] init];
+    addFoodVC.meal = self.meal;
+    [self.navigationController pushViewController:addFoodVC animated:YES];
+}
+
+- (IBAction)doneButtonPress:(id)sender{
+    int sugarLevel = [self.textField.text integerValue];
+    NSLog(@"%d", sugarLevel);
+    if(sugarLevel < 1 || sugarLevel > 999){
+        self.errorLabel.text = @"Blood glucose level must be a number between 0 and 999!";
+        self.errorLabel.hidden = NO;
+    }else{
+        self.meal.levelBefore = sugarLevel;
+        self.errorLabel.hidden = YES;
+    }
+    self.textField.text = [NSString stringWithFormat:@"%d", sugarLevel];
+    [self.textField resignFirstResponder];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -74,7 +111,8 @@
     button.tag = section;
     button.hidden = NO;
     [button setBackgroundColor:[UIColor clearColor]];
-    [button addTarget:self action:@selector(backButtonPress) forControlEvents:UIControlEventTouchUpInside];
+    button.tintColor = [UIColor blackColor];
+    [button addTarget:self action:@selector(addFood) forControlEvents:UIControlEventTouchUpInside];
     
     [headerView addSubview:button];
     [headerView addSubview:headerLabel];
@@ -89,7 +127,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if (indexPath.row == [_records count]) {
-        [self backButtonPress];
+        [self addFood];
     }
 }
 
@@ -142,7 +180,7 @@
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
     
 
-    [_records removeObjectAtIndex:cellIndexPath.row];
+    [_records removeObjectAtIndex:index];
     [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
 
 }
