@@ -7,8 +7,16 @@
 //
 
 #import "AddFoodViewController.h"
+#import "Record.h"
+#import "Meal.h"
+#import "DatabaseConnector.h"
 
 @interface AddFoodViewController ()
+
+@property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic, weak) UIButton    *addNewFoodButton;
+
+@property (nonatomic, strong) Record *record;
 
 @end
 
@@ -26,13 +34,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.hidesBackButton = YES;
+    self.title = @"Select a Food";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind
+                                                                                          target:self
+                                                                                          action:@selector(backButtonPress)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                target:self
+                                                                                action:@selector(doneButtonPress)];
+    self.navigationItem.rightBarButtonItem = doneButton;
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)backButtonPress{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)doneButtonPress{
+    self.record = [[DatabaseConnector getSharedDBAccessor] createRecord];
+    self.record.item = @"Wheat Bread";
+    [self.meal addRecord: self.record];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

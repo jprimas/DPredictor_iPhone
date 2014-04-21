@@ -9,15 +9,17 @@
 #import "EditMealViewController.h"
 #import "SWTableViewCell.h"
 #import "AddFoodViewController.h"
+#import "KeyboardToolbarView.h"
 #import "Meal.h"
+#import "Record.h"
 
-@interface EditMealViewController (){
-    NSMutableArray *_records;
-}
+@interface EditMealViewController ()
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UILabel *errorLabel;
+
+@property (nonatomic, strong) NSMutableArray *records;
 
 @end
 
@@ -46,6 +48,16 @@
     }
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
+    [keyboardToolbar sizeToFit];
+    [keyboardToolbar setBarTintColor:[UIColor colorWithRed:170/255.0 green:175/255.0 blue:181/255.0 alpha:1]];
+    KeyboardToolbarView *keyboardToolbarView = [[KeyboardToolbarView alloc] initWithFrame:keyboardToolbar.frame];
+    [keyboardToolbarView.doneButton addTarget:self action:@selector(doneButtonPress) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithCustomView:keyboardToolbarView];
+    
+    [keyboardToolbar setItems:[NSArray arrayWithObjects:doneButton, nil]];
+    self.textField.inputAccessoryView = keyboardToolbar;
+    
     self.errorLabel.hidden = YES;
 }
 
@@ -54,10 +66,10 @@
     if (self.meal.levelBefore != 0) {
         self.textField.text = [NSString stringWithFormat:@"%d", self.meal.levelBefore ];
     }
-    if([self.meal.records count] > 0){
-        _records = [[NSMutableArray alloc] initWithArray:[self.meal.records allObjects]];
-    }else{
-        _records = [[NSMutableArray alloc] init];
+    self.records = [[self.meal.records allObjects] mutableCopy];
+    [self.tableView reloadData];
+    if([self.records count] > 0){
+        NSLog(@"Records added: %@", ((Record*)self.records[0]).item);
     }
 }
 
@@ -78,7 +90,7 @@
     [self.navigationController pushViewController:addFoodVC animated:YES];
 }
 
-- (IBAction)doneButtonPress:(id)sender{
+- (void)doneButtonPress{
     int sugarLevel = [self.textField.text integerValue];
     NSLog(@"%d", sugarLevel);
     if(sugarLevel < 1 || sugarLevel > 999){
@@ -120,20 +132,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_records count] + 1;
+    return [self.records count] + 1;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    if (indexPath.row == [_records count]) {
+    if (indexPath.row == [self.records count]) {
         [self addFood];
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.row < [_records count]) {
+    NSLog(@"Row: %d    count: %d", indexPath.row, [self.records count]);
+    if (indexPath.row < [self.records count]) {
         SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SwipeableCell"];
         
         if (cell == nil) {
@@ -146,7 +158,7 @@
             cell.delegate = self;
         }
         cell.textLabel.backgroundColor = [UIColor whiteColor];
-        cell.textLabel.text = _records[indexPath.row];
+        cell.textLabel.text = ((Record*)self.records[indexPath.row]).item;
         return cell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RegularCell"];
@@ -178,9 +190,10 @@
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     // Delete button was pressed
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-    
 
-    [_records removeObjectAtIndex:index];
+    Record *r = self.records[cellIndexPath.row];
+    [self.meal removeRecord:r];
+    [self.records removeObjectAtIndex:cellIndexPath.row];
     [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
 
 }

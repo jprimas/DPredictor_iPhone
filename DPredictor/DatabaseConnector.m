@@ -91,11 +91,15 @@
 }
 
 - (Meal *)createMeal{
-    
     Meal *meal = [NSEntityDescription insertNewObjectForEntityForName:@"Meal"
                                                  inManagedObjectContext:self.context];
-    
     return meal;
+}
+
+- (Record *)createRecord{
+    Record *record = [NSEntityDescription insertNewObjectForEntityForName:@"Record"
+                                               inManagedObjectContext:self.context];
+    return record;
 }
 
 @end

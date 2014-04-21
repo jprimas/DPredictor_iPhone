@@ -33,12 +33,12 @@
 }
 
 - (void)addRecord:(Record *)record{
-    
+    [self.records addObject:record];
 }
 
 
-- (void)removeRecord:(Record *)record;{
-    
+- (void)removeRecord:(Record *)record{
+    [self.records removeObject:record];
 }
 
 

@@ -28,22 +28,12 @@
 
 //Methods to do with Meal Entity
 - (Meal *)createMeal;
-- (Meal *) addMealWithTotalCarbs:(double)totalCarbs
-                     levelBefore:(int)levelBefore
-                      levelAfter:(int)levelAfter
-                      unitsTaken:(int)unitsTaken
-                  unitsPredicted:(int)unitsPredicted
-                        mealType:(NSString *)mealType;
 - (Meal *) getMealWithId:(NSManagedObjectID *)id;
 - (Meal *) getUnfinishedMeal;
 - (NSArray *) getMealsStartingFrom:(int)index;
 
 //Methods to do with Record Entity
-- (Record *) addRecordWithItem:(NSString *)item
-                         carbs:(double)carbs
-                        amount:(double)amount
-                    quantifier:(NSString *)quantifier
-                          meal:(Meal *) meal;
+- (Record *) createRecord;
 
 
 @end

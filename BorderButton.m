@@ -17,6 +17,20 @@
 @implementation BorderButton
 
 
+-(id) init{
+    self = [super init];
+    
+    if (self)
+    {
+        [self drawButton];
+        [self drawHighlightBackgroundLayer];
+        
+        _highlightBackgroundLayer.hidden = YES;
+    }
+    
+    return self;
+}
+
 - (id)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];

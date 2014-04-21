@@ -21,7 +21,7 @@
 @property (nonatomic, retain) NSString * mealType;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * updatedAt;
-@property (nonatomic, retain) NSSet *records;
+@property (nonatomic, retain) NSMutableSet *records;
 @end
 
 @interface Meal (CoreDataGeneratedAccessors)
