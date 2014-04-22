@@ -28,4 +28,54 @@
     self.updatedAt = currentDate;
 }
 
+- (void) standardizeQuantfier{
+    if([self.quantifier.lowercaseString isEqualToString:@"grams"]){
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    } else if([self.quantifier.lowercaseString isEqualToString:@"ounces"]){
+        self.quantifier = @"Grams";
+        self.amount = self.amount * 28.3495;
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    } else if([self.quantifier.lowercaseString isEqualToString:@"liters"]){
+        self.quantifier = @"Milliliter";
+        self.amount = self.amount / 1000;
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    } else if([self.quantifier.lowercaseString isEqualToString:@"teaspoons"]){
+        self.quantifier = @"Milliliter";
+        self.amount = self.amount * 4.92892;
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    } else if([self.quantifier.lowercaseString isEqualToString:@"tablespoons"]){
+        self.quantifier = @"Milliliter";
+        self.amount = self.amount * 14.7868;
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    } else if([self.quantifier.lowercaseString isEqualToString:@"cups"]){
+        self.quantifier = @"Milliliter";
+        self.amount = self.amount * 236.588;
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    } else if([self.quantifier.lowercaseString isEqualToString:@"pints"]){
+        self.quantifier = @"Milliliter";
+        self.amount = self.amount * 473.176;
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    } else if([self.quantifier.lowercaseString isEqualToString:@"quarts"]){
+        self.quantifier = @"Milliliter";
+        self.amount = self.amount * 946.353;
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    } else if([self.quantifier.lowercaseString isEqualToString:@"gallons"]){
+        self.quantifier = @"Milliliter";
+        self.amount = self.amount * 3785.41;
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    }else{
+        self.carbs = self.carbs / self.amount;
+        self.amount = 1;
+    }
+}
+
 @end

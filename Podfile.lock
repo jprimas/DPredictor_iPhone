@@ -1,10 +1,13 @@
 PODS:
+  - ActionSheetPicker (0.0.2)
   - SWTableViewCell (0.2.7)
 
 DEPENDENCIES:
+  - ActionSheetPicker (~> 0.0.2)
   - SWTableViewCell (~> 0.2.7)
 
 SPEC CHECKSUMS:
+  ActionSheetPicker: 16e212011d5c2e92b3e38609a58b93919b4056aa
   SWTableViewCell: cb58ca308c311391844c44aede3dc6b3a636d37b
 
 COCOAPODS: 0.32.1

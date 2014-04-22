@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Meal;
 
-@interface CreateFoodViewController : UIViewController
+@interface CreateFoodViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+
+@property (atomic, strong) Meal *meal;
 
 @end

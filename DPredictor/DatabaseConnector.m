@@ -7,6 +7,7 @@
 //
 
 #import "DatabaseConnector.h"
+#import "Food.h"
 
 @interface DatabaseConnector ()
 
@@ -100,6 +101,22 @@
     Record *record = [NSEntityDescription insertNewObjectForEntityForName:@"Record"
                                                inManagedObjectContext:self.context];
     return record;
+}
+
+- (Food *)createFoodWithItem:(NSString *)item
+               quantifier:(NSString *)quantifier
+                   amount:(double)amount
+                    carbs:(double)carbs
+                    units:(double)units
+{
+    Food *food = [NSEntityDescription insertNewObjectForEntityForName:@"Food"
+                                               inManagedObjectContext:self.context];
+    food.carbs = carbs / amount;
+    food.quantifier = quantifier; //TODO: standardize quantifiers
+    food.item = item;
+    food.amount = 1.0;
+    [food standardizeQuantfier];
+    return food;
 }
 
 @end

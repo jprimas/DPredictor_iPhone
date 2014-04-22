@@ -10,6 +10,7 @@
 #import "Record.h"
 #import "Meal.h"
 #import "DatabaseConnector.h"
+#import "CreateFoodViewController.h"
 
 @interface AddFoodViewController ()
 
@@ -61,6 +62,12 @@
     self.record.item = @"Wheat Bread";
     [self.meal addRecord: self.record];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)createNewFood:(id)sender{
+    CreateFoodViewController *createFoodVC = [[CreateFoodViewController alloc] init];
+    createFoodVC.meal = self.meal;
+    [self.navigationController pushViewController:createFoodVC animated:YES];
 }
 
 @end

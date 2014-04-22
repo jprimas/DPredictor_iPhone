@@ -18,7 +18,7 @@
 - (BOOL)saveChanges;
 
 //Methods to do with Food Entity
-- (Food *)addFoodWithItem:(NSString *)item
+- (Food *)createFoodWithItem:(NSString *)item
                quantifier:(NSString *)quantifier
                    amount:(double)amount
                     carbs:(double)carbs

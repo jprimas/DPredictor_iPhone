@@ -20,9 +20,7 @@
 @property (nonatomic) int score;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * updatedAt;
-@end
 
-@interface Food (CoreDataGeneratedAccessors)
-
+- (void) standardizeQuantfier;
 
 @end

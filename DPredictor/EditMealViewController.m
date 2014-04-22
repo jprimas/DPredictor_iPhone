@@ -12,6 +12,7 @@
 #import "KeyboardToolbarView.h"
 #import "Meal.h"
 #import "Record.h"
+#import "Food.h"
 
 @interface EditMealViewController ()
 
@@ -68,9 +69,6 @@
     }
     self.records = [[self.meal.records allObjects] mutableCopy];
     [self.tableView reloadData];
-    if([self.records count] > 0){
-        NSLog(@"Records added: %@", ((Record*)self.records[0]).item);
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,7 +78,6 @@
 }
 
 - (void)backButtonPress{
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -92,7 +89,6 @@
 
 - (void)doneButtonPress{
     int sugarLevel = [self.textField.text integerValue];
-    NSLog(@"%d", sugarLevel);
     if(sugarLevel < 1 || sugarLevel > 999){
         self.errorLabel.text = @"Blood glucose level must be a number between 0 and 999!";
         self.errorLabel.hidden = NO;
@@ -144,7 +140,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Row: %d    count: %d", indexPath.row, [self.records count]);
     if (indexPath.row < [self.records count]) {
         SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SwipeableCell"];
         
@@ -158,7 +153,7 @@
             cell.delegate = self;
         }
         cell.textLabel.backgroundColor = [UIColor whiteColor];
-        cell.textLabel.text = ((Record*)self.records[indexPath.row]).item;
+        cell.textLabel.text = ((Record*)self.records[indexPath.row]).food.item;
         return cell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RegularCell"];
