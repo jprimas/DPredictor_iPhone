@@ -37,13 +37,25 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     self.title = @"Select a Food";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind
-                                                                                          target:self
-                                                                                          action:@selector(backButtonPress)];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                target:self
-                                                                                action:@selector(doneButtonPress)];
-    self.navigationItem.rightBarButtonItem = doneButton;
+    //backButton
+    UIImage* whiteBackButtonImg = [UIImage imageNamed:@"backArrow_white.png"];
+    UIImage* blackBackButtonImg = [UIImage imageNamed:@"backArrow_black.png"];
+    CGRect frameimg = CGRectMake(0, 0, whiteBackButtonImg.size.width, whiteBackButtonImg.size.height);
+    UIButton *backButton = [[UIButton alloc] initWithFrame:frameimg];
+    [backButton setBackgroundImage:whiteBackButtonImg forState:UIControlStateNormal];
+    [backButton setBackgroundImage:blackBackButtonImg forState:UIControlStateHighlighted];
+    [backButton addTarget:self action:@selector(backButtonPress)
+         forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    //Add button
+    UIImage* whitePlusSignImg = [UIImage imageNamed:@"plusSign_white.png"];
+    UIImage* blackPlusSignImg = [UIImage imageNamed:@"plusSign_black.png"];
+    UIButton *plusButton = [[UIButton alloc] initWithFrame:frameimg];
+    [plusButton setBackgroundImage:whitePlusSignImg forState:UIControlStateNormal];
+    [plusButton setBackgroundImage:blackPlusSignImg forState:UIControlStateHighlighted];
+    [plusButton addTarget:self action:@selector(createNewFood:)
+         forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:plusButton];
     
 }
 

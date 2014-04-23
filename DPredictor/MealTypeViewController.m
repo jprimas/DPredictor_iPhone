@@ -37,7 +37,15 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     self.title = @"Add a Meal";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(backButtonPress)];
+    UIImage* whiteBackButtonImg = [UIImage imageNamed:@"backArrow_white.png"];
+    UIImage* blackBackButtonImg = [UIImage imageNamed:@"backArrow_black.png"];
+    CGRect frameimg = CGRectMake(0, 0, whiteBackButtonImg.size.width, whiteBackButtonImg.size.height);
+    UIButton *backButton = [[UIButton alloc] initWithFrame:frameimg];
+    [backButton setBackgroundImage:whiteBackButtonImg forState:UIControlStateNormal];
+    [backButton setBackgroundImage:blackBackButtonImg forState:UIControlStateHighlighted];
+    [backButton addTarget:self action:@selector(backButtonPress)
+         forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

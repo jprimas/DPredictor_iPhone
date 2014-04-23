@@ -42,7 +42,15 @@ UILabel *clarificationLabel;
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     self.title = @"Personalize";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRedo target:self action:@selector(backButtonPress)];
+    UIImage* whiteBackButtonImg = [UIImage imageNamed:@"backArrow_white.png"];
+    UIImage* blackBackButtonImg = [UIImage imageNamed:@"backArrow_black.png"];
+    CGRect frameimg = CGRectMake(0, 0, whiteBackButtonImg.size.width, whiteBackButtonImg.size.height);
+    UIButton *backButton = [[UIButton alloc] initWithFrame:frameimg];
+    [backButton setBackgroundImage:whiteBackButtonImg forState:UIControlStateNormal];
+    [backButton setBackgroundImage:blackBackButtonImg forState:UIControlStateHighlighted];
+    [backButton addTarget:self action:@selector(backButtonPress)
+         forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
     self.titleLabel.text = @"One more but of info...";
     self.descriptionLabel.text = @"Sugars Per Unit of Insulin";

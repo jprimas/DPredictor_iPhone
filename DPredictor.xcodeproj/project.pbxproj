@@ -15,6 +15,10 @@
 		422CE05619047C580061217F /* AddFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CE05419047C580061217F /* AddFoodViewController.m */; };
 		422CE05719047C580061217F /* AddFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422CE05519047C580061217F /* AddFoodViewController.xib */; };
 		422CE05919047F2A0061217F /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 422CE05819047F2A0061217F /* checkmark.png */; };
+		425233C5190848AB00488E7C /* plusSign_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 425233C3190848AB00488E7C /* plusSign_black.png */; };
+		425233C6190848AB00488E7C /* plusSign_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 425233C4190848AB00488E7C /* plusSign_white.png */; };
+		425233C9190848B700488E7C /* backArrow_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 425233C7190848B700488E7C /* backArrow_black.png */; };
+		425233CA190848B700488E7C /* backArrow_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 425233C8190848B700488E7C /* backArrow_white.png */; };
 		42D2CCC41903253600145247 /* User2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D2CCC21903253600145247 /* User2ViewController.m */; };
 		42D2CCC51903253600145247 /* User2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D2CCC31903253600145247 /* User2ViewController.xib */; };
 		42D2CCCA19032F3700145247 /* MealTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D2CCC819032F3700145247 /* MealTypeViewController.m */; };
@@ -73,6 +77,10 @@
 		422CE05419047C580061217F /* AddFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFoodViewController.m; sourceTree = "<group>"; };
 		422CE05519047C580061217F /* AddFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFoodViewController.xib; sourceTree = "<group>"; };
 		422CE05819047F2A0061217F /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmark.png; sourceTree = "<group>"; };
+		425233C3190848AB00488E7C /* plusSign_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusSign_black.png; sourceTree = "<group>"; };
+		425233C4190848AB00488E7C /* plusSign_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusSign_white.png; sourceTree = "<group>"; };
+		425233C7190848B700488E7C /* backArrow_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow_black.png; sourceTree = "<group>"; };
+		425233C8190848B700488E7C /* backArrow_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow_white.png; sourceTree = "<group>"; };
 		42D2CCC11903253600145247 /* User2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User2ViewController.h; sourceTree = "<group>"; };
 		42D2CCC21903253600145247 /* User2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User2ViewController.m; sourceTree = "<group>"; };
 		42D2CCC31903253600145247 /* User2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = User2ViewController.xib; sourceTree = "<group>"; };
@@ -232,6 +240,10 @@
 		42FDCD5D190052CC0069CA4F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				425233C7190848B700488E7C /* backArrow_black.png */,
+				425233C8190848B700488E7C /* backArrow_white.png */,
+				425233C3190848AB00488E7C /* plusSign_black.png */,
+				425233C4190848AB00488E7C /* plusSign_white.png */,
 				422CE05819047F2A0061217F /* checkmark.png */,
 				42FDCD5E190052CC0069CA4F /* DPredictor-Info.plist */,
 				42FDCD5F190052CC0069CA4F /* InfoPlist.strings */,
@@ -366,16 +378,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				425233CA190848B700488E7C /* backArrow_white.png in Resources */,
 				42038E3419078CE700EFB9F2 /* PredictionViewController.xib in Resources */,
 				42D2CCC51903253600145247 /* User2ViewController.xib in Resources */,
 				42D2CCCB19032F3700145247 /* MealTypeViewController.xib in Resources */,
 				422CE05719047C580061217F /* AddFoodViewController.xib in Resources */,
 				42FDCD61190052CC0069CA4F /* InfoPlist.strings in Resources */,
 				42038E2C1905CC8600EFB9F2 /* CreateFoodViewController.xib in Resources */,
+				425233C5190848AB00488E7C /* plusSign_black.png in Resources */,
 				42FDCDAC190081A10069CA4F /* UserViewController.xib in Resources */,
 				42FDCDA719007C510069CA4F /* MenuViewController.xib in Resources */,
 				42D2CCD019032F9A00145247 /* EditMealViewController.xib in Resources */,
 				42FDCD6C190052CC0069CA4F /* Images.xcassets in Resources */,
+				425233C6190848AB00488E7C /* plusSign_white.png in Resources */,
+				425233C9190848B700488E7C /* backArrow_black.png in Resources */,
 				422CE05919047F2A0061217F /* checkmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

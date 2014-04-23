@@ -8,6 +8,9 @@
 
 #import "PredictionViewController.h"
 #import "KeyboardToolbarView.h"
+#import "Meal.h"
+#import "Record.h"
+#import "DatabaseConnector.h"
 
 @interface PredictionViewController (){
     int _prediction;
@@ -35,7 +38,15 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     self.title = @"Unit Prediction";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(backButtonPress)];
+    UIImage* whiteBackButtonImg = [UIImage imageNamed:@"backArrow_white.png"];
+    UIImage* blackBackButtonImg = [UIImage imageNamed:@"backArrow_black.png"];
+    CGRect frameimg = CGRectMake(0, 0, whiteBackButtonImg.size.width, whiteBackButtonImg.size.height);
+    UIButton *backButton = [[UIButton alloc] initWithFrame:frameimg];
+    [backButton setBackgroundImage:whiteBackButtonImg forState:UIControlStateNormal];
+    [backButton setBackgroundImage:blackBackButtonImg forState:UIControlStateHighlighted];
+    [backButton addTarget:self action:@selector(backButtonPress)
+         forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
     UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
@@ -66,6 +77,15 @@
 }
 
 -(IBAction)finishButtonPress:(id)sender{
+    self.meal.unitsPredicted = _prediction;
+    self.meal.unitsTaken = _unitsTaken;
+    self.meal.levelAfter = -1;
+    double carbCount = 0;
+    for (Record * r in self.meal.records){
+        carbCount += r.carbs;
+    }
+    [[DatabaseConnector getSharedDBAccessor] saveChanges];
+    [self.navigationController popToRootViewControllerAnimated:YES];
     //complete and save meal/record/food
 }
 
