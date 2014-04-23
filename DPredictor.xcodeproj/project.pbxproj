@@ -10,6 +10,8 @@
 		42038E2B1905CC8600EFB9F2 /* CreateFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42038E291905CC8600EFB9F2 /* CreateFoodViewController.m */; };
 		42038E2C1905CC8600EFB9F2 /* CreateFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42038E2A1905CC8600EFB9F2 /* CreateFoodViewController.xib */; };
 		42038E2F1905D16400EFB9F2 /* KeyboardToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42038E2E1905D16400EFB9F2 /* KeyboardToolbarView.m */; };
+		42038E3319078CE700EFB9F2 /* PredictionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42038E3119078CE700EFB9F2 /* PredictionViewController.m */; };
+		42038E3419078CE700EFB9F2 /* PredictionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42038E3219078CE700EFB9F2 /* PredictionViewController.xib */; };
 		422CE05619047C580061217F /* AddFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 422CE05419047C580061217F /* AddFoodViewController.m */; };
 		422CE05719047C580061217F /* AddFoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 422CE05519047C580061217F /* AddFoodViewController.xib */; };
 		422CE05919047F2A0061217F /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 422CE05819047F2A0061217F /* checkmark.png */; };
@@ -64,6 +66,9 @@
 		42038E2A1905CC8600EFB9F2 /* CreateFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateFoodViewController.xib; sourceTree = "<group>"; };
 		42038E2D1905D16400EFB9F2 /* KeyboardToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardToolbarView.h; sourceTree = "<group>"; };
 		42038E2E1905D16400EFB9F2 /* KeyboardToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardToolbarView.m; sourceTree = "<group>"; };
+		42038E3019078CE700EFB9F2 /* PredictionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PredictionViewController.h; sourceTree = "<group>"; };
+		42038E3119078CE700EFB9F2 /* PredictionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PredictionViewController.m; sourceTree = "<group>"; };
+		42038E3219078CE700EFB9F2 /* PredictionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PredictionViewController.xib; sourceTree = "<group>"; };
 		422CE05319047C580061217F /* AddFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFoodViewController.h; sourceTree = "<group>"; };
 		422CE05419047C580061217F /* AddFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFoodViewController.m; sourceTree = "<group>"; };
 		422CE05519047C580061217F /* AddFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFoodViewController.xib; sourceTree = "<group>"; };
@@ -161,6 +166,9 @@
 				42038E281905CC8500EFB9F2 /* CreateFoodViewController.h */,
 				42038E291905CC8600EFB9F2 /* CreateFoodViewController.m */,
 				42038E2A1905CC8600EFB9F2 /* CreateFoodViewController.xib */,
+				42038E3019078CE700EFB9F2 /* PredictionViewController.h */,
+				42038E3119078CE700EFB9F2 /* PredictionViewController.m */,
+				42038E3219078CE700EFB9F2 /* PredictionViewController.xib */,
 			);
 			name = AddMeal;
 			sourceTree = "<group>";
@@ -358,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42038E3419078CE700EFB9F2 /* PredictionViewController.xib in Resources */,
 				42D2CCC51903253600145247 /* User2ViewController.xib in Resources */,
 				42D2CCCB19032F3700145247 /* MealTypeViewController.xib in Resources */,
 				422CE05719047C580061217F /* AddFoodViewController.xib in Resources */,
@@ -426,6 +435,7 @@
 				42D2CCCA19032F3700145247 /* MealTypeViewController.m in Sources */,
 				42FDCD8E19005B720069CA4F /* Meal.m in Sources */,
 				42038E2F1905D16400EFB9F2 /* KeyboardToolbarView.m in Sources */,
+				42038E3319078CE700EFB9F2 /* PredictionViewController.m in Sources */,
 				42D2CCCF19032F9A00145247 /* EditMealViewController.m in Sources */,
 				42F180441900E5DB00706BFE /* BorderButton.m in Sources */,
 				42FDCD67190052CC0069CA4F /* AppDelegate.m in Sources */,

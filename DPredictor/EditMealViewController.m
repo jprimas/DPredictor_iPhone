@@ -11,6 +11,7 @@
 #import "SWTableViewCell.h"
 #import "AddFoodViewController.h"
 #import "KeyboardToolbarView.h"
+#import "PredictionViewController.h"
 #import "Meal.h"
 #import "Record.h"
 #import "Food.h"
@@ -67,7 +68,6 @@
     
     UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
     [keyboardToolbar sizeToFit];
-    NSLog(@"ddddh:    %f",keyboardToolbar.frame.size.height);
     [keyboardToolbar setBarTintColor:[UIColor colorWithRed:170/255.0 green:175/255.0 blue:181/255.0 alpha:1]];
     KeyboardToolbarView *keyboardToolbarView = [[KeyboardToolbarView alloc] initWithFrame:keyboardToolbar.frame];
     [keyboardToolbarView.doneButton addTarget:self action:@selector(doneButtonPress) forControlEvents:UIControlEventTouchUpInside];
@@ -133,6 +133,13 @@
     }
     self.textField.text = [NSString stringWithFormat:@"%d", sugarLevel];
     [self clearInputPopups];
+    
+}
+
+- (IBAction)predictButtonPress:(id)sender{
+    PredictionViewController *predictionVC = [[PredictionViewController alloc] init];
+    predictionVC.meal = self.meal;
+    [self.navigationController pushViewController:predictionVC animated:YES];
 }
 
 -(void)doneWithPicker{

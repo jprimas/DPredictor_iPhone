@@ -54,7 +54,6 @@
     [self.pickerView setFrame: CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 216.0f)];
     self.pickerView.showsSelectionIndicator = YES;
     [self.pickerView selectRow:_quantifierIndex inComponent:0 animated:YES];
-    
     self.foodQuantifierInput.inputView = self.pickerView;
     
     self.quantifierLabel.text = _quantifiers[_quantifierIndex];
@@ -124,6 +123,11 @@
         self.errorLabel.hidden = false;
     }
 }
+
+
+///////////////
+//Picker View//
+///////////////
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
