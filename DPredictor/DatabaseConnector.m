@@ -119,4 +119,79 @@
     return food;
 }
 
+- (NSArray *)getSimilarFoods:(NSString *)name {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"Food"
+                                         inManagedObjectContext:self.context];
+    request.entity = e;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"(item CONTAINS[cd] %@)", name];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:request error:&error];
+    if (!result) {
+        [NSException raise:@"Fetch failed"
+                    format:@"Reason: %@", [error localizedDescription]];
+    }
+    return result;
+    
+}
+
+- (NSArray *)getRecentFoods {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"Food"
+                                         inManagedObjectContext:self.context];
+    request.entity = e;
+
+    [request setFetchLimit:20];
+    
+     NSSortDescriptor *sd = [NSSortDescriptor
+     sortDescriptorWithKey:@"createdAt"
+     ascending:YES];
+     request.sortDescriptors = @[sd];
+    
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:request error:&error];
+    if (!result) {
+        [NSException raise:@"Fetch failed"
+                    format:@"Reason: %@", [error localizedDescription]];
+    }
+    return result;
+}
+
+- (BOOL) alreadyExistsWithName:(NSString *)item withQuantifier:(NSString *)quantifer{
+    quantifer = [Food standardizeQuantfier:quantifer];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"Food"
+                                         inManagedObjectContext:self.context];
+    request.entity = e;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"(item MATCHES[cd] %@ AND quantifier MATCHES[cd] %@)", item, quantifer];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:request error:&error];
+    if (!result) {
+        [NSException raise:@"Fetch failed"
+                    format:@"Reason: %@", [error localizedDescription]];
+    }
+    if([result count] > 0){
+        return YES;
+    }else{
+        return NO;
+    }
+
+}
+
+
+
+
+
 @end

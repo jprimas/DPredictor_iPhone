@@ -85,7 +85,6 @@
     self.errorLabel.hidden = true;
     BOOL sanatizedInput = true;
     NSString *item = _foodNameInput.text;
-    //TODO: Check if item already exists (item name + standardized amount)
     if ([item length] <= 0) {
         sanatizedInput = false;
         self.errorLabel.text = @"Enter a descriptive name for the food.";
@@ -94,6 +93,11 @@
     if(![_quantifiers containsObject:quantifier]){
         sanatizedInput = false;
         self.errorLabel.text = @"Select a valid quantifier.";
+    }
+    if([[DatabaseConnector getSharedDBAccessor] alreadyExistsWithName:item withQuantifier:quantifier]){
+        //Precondition: There is a valid quantifier and a valid food name
+        sanatizedInput = false;
+        self.errorLabel.text = @"Such a food item has already been added.";
     }
     double amount = [_amountInput.text doubleValue];
     if(amount <= 0){

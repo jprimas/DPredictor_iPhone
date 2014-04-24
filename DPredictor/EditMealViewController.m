@@ -182,19 +182,19 @@
     [headerView setBackgroundColor:[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:.9]];
     
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, tableView.bounds.size.width, 33)];
-    headerLabel.text = @"F o o d s";
-    headerLabel.font = [UIFont fontWithName: @"Helvetica-Bold" size: 12.0  ];
+    headerLabel.text = @"Foods";
+    headerLabel.font = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0  ];
     headerLabel.textAlignment = NSTextAlignmentLeft;
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    [button setFrame:CGRectMake(275.0, 2.0, 30.0, 30.0)];
-    button.tag = section;
-    button.hidden = NO;
-    [button setBackgroundColor:[UIColor clearColor]];
-    button.tintColor = [UIColor blackColor];
-    [button addTarget:self action:@selector(addFood) forControlEvents:UIControlEventTouchUpInside];
+    UIImage* whitePlusSignImg = [UIImage imageNamed:@"plusSign_white.png"];
+    UIImage* blackPlusSignImg = [UIImage imageNamed:@"plusSign_black.png"];
+    CGRect frameimg = CGRectMake(275, 2, whitePlusSignImg.size.width, whitePlusSignImg.size.height);
+    UIButton *plusButton = [[UIButton alloc] initWithFrame:frameimg];
+    [plusButton setBackgroundImage:blackPlusSignImg forState:UIControlStateNormal];
+    [plusButton setBackgroundImage:whitePlusSignImg forState:UIControlStateHighlighted];
+    [plusButton addTarget:self action:@selector(addFood) forControlEvents:UIControlEventTouchUpInside];
     
-    [headerView addSubview:button];
+    [headerView addSubview:plusButton];
     [headerView addSubview:headerLabel];
     return headerView;
 }

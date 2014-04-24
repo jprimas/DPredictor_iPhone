@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * updatedAt;
 
++ (NSString*) standardizeQuantfier:(NSString *)quantifier;
 - (void) standardizeQuantfier;
 
 @end

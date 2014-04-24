@@ -24,13 +24,15 @@
                     carbs:(double)carbs
                     units:(double)units;
 - (NSArray *)getSimilarFoods:(NSString *)name;
-- (Food *)getFoodWithId:(NSManagedObjectID *)id;
+- (NSArray *)getRecentFoods;
+- (BOOL) alreadyExistsWithName:(NSString *)item withQuantifier:(NSString *)quantifer;
+//- (Food *)getFoodWithId:(NSManagedObjectID *)id;
 
 //Methods to do with Meal Entity
 - (Meal *)createMeal;
-- (Meal *) getMealWithId:(NSManagedObjectID *)id;
-- (Meal *) getUnfinishedMeal;
-- (NSArray *) getMealsStartingFrom:(int)index;
+//- (Meal *) getMealWithId:(NSManagedObjectID *)id;
+//- (Meal *) getUnfinishedMeal;
+//- (NSArray *) getMealsStartingFrom:(int)index;
 
 //Methods to do with Record Entity
 - (Record *) createRecord;

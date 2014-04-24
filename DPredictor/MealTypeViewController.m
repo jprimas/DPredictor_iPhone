@@ -80,8 +80,8 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 10)];
     [headerView setBackgroundColor:[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:.9]];
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 33)];
-    headerLabel.text = @"M e a l   T i m e s";
-    headerLabel.font = [UIFont fontWithName: @"Helvetica-Bold" size: 12.0  ];
+    headerLabel.text = @"Meal Times";
+    headerLabel.font = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0];
     headerLabel.textAlignment = NSTextAlignmentCenter;
     [headerView addSubview:headerLabel];
     return headerView;
@@ -115,7 +115,7 @@
     
     cell.textLabel.text = _options[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.font  = [UIFont fontWithName: @"Helvetica" size: 12.0 ];
+    cell.textLabel.font  = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0 ];
     
     return cell;
     

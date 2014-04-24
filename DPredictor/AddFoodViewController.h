@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class Meal;
 
-@interface AddFoodViewController : UIViewController
+@interface AddFoodViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (atomic, strong) Meal *meal;
 

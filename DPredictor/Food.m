@@ -78,4 +78,28 @@
     }
 }
 
++ (NSString*) standardizeQuantfier:(NSString *)quantifier {
+    if([quantifier.lowercaseString isEqualToString:@"grams"]){
+        return @"Grams";
+    } else if([quantifier.lowercaseString isEqualToString:@"ounces"]){
+        return @"Grams";
+    } else if([quantifier.lowercaseString isEqualToString:@"liters"]){
+        return @"Milliliters";
+    } else if([quantifier.lowercaseString isEqualToString:@"teaspoons"]){
+        return @"Milliliters";
+    } else if([quantifier.lowercaseString isEqualToString:@"tablespoons"]){
+        return @"Milliliters";
+    } else if([quantifier.lowercaseString isEqualToString:@"cups"]){
+        return @"Milliliters";
+    } else if([quantifier.lowercaseString isEqualToString:@"pints"]){
+        return @"Milliliters";
+    } else if([quantifier.lowercaseString isEqualToString:@"quarts"]){
+        return @"Milliliters";
+    } else if([quantifier.lowercaseString isEqualToString:@"gallons"]){
+        return @"Milliliters";
+    }else{
+        return quantifier;
+    }
+}
+
 @end
