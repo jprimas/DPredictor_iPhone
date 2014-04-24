@@ -118,6 +118,7 @@
         record.meal = self.meal;
         record.amount = amount;
         record.quantifier = quantifier;
+        record.carbs = carbs;
         [self.meal addRecord:record];
         
         //Pop back two view controllers

@@ -23,6 +23,7 @@
     NSArray *_wieghts;
     NSArray *_liquidWieghts;
     Record *_selectedRecord;
+    int _sugarLevel;
 }
 
 @property (nonatomic, weak) IBOutlet UIView *pickerToolbar;
@@ -41,6 +42,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        _sugarLevel = 0;
         _quantifiers = [[NSArray alloc] init];
         _numbers = [NSArray arrayWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"30", nil];
         _decimals = [NSArray arrayWithObjects:@".0", @".1", @".2", @".3", @".4", @".5", @".6", @".7", @".8", @".9", nil];
@@ -131,20 +133,33 @@
 }
 
 - (void)doneButtonPress{
-    int sugarLevel = [self.textField.text integerValue];
-    if(sugarLevel < 1 || sugarLevel > 999){
+    _sugarLevel = [self.textField.text integerValue];
+    if(_sugarLevel < 1 || _sugarLevel > 999){
         self.errorLabel.text = @"Blood glucose level must be a number between 0 and 999!";
         self.errorLabel.hidden = NO;
     }else{
-        self.meal.levelBefore = sugarLevel;
         self.errorLabel.hidden = YES;
     }
-    self.textField.text = [NSString stringWithFormat:@"%d", sugarLevel];
+    self.textField.text = [NSString stringWithFormat:@"%d", _sugarLevel];
     [self clearInputPopups];
     
 }
 
 - (IBAction)predictButtonPress:(id)sender{
+    _sugarLevel = [self.textField.text integerValue];
+    if(_sugarLevel < 1 || _sugarLevel > 999){
+        self.errorLabel.text = @"Blood glucose level must be a number between 0 and 999!";
+        self.errorLabel.hidden = NO;
+        return;
+    }else{
+        self.meal.levelBefore = _sugarLevel;
+    }
+    if ([self.meal.records count] <= 0) {
+        self.errorLabel.text = @"Enter the food you will eat this meal.";
+        self.errorLabel.hidden = NO;
+        return;
+    }
+    
     PredictionViewController *predictionVC = [[PredictionViewController alloc] init];
     predictionVC.meal = self.meal;
     [self.navigationController pushViewController:predictionVC animated:YES];

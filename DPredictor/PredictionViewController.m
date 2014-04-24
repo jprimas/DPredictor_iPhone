@@ -84,6 +84,7 @@
     for (Record * r in self.meal.records){
         carbCount += r.carbs;
     }
+    self.meal.totalCarbs = carbCount;
     [[DatabaseConnector getSharedDBAccessor] saveChanges];
     [self.navigationController popToRootViewControllerAnimated:YES];
     //complete and save meal/record/food

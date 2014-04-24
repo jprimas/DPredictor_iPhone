@@ -16,6 +16,7 @@
 
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, weak) UIButton    *addNewFoodButton;
+@property (nonatomic, weak) UISearchBar *searchBar;
 
 @property (nonatomic, strong) Record *record;
 
@@ -66,13 +67,6 @@
 }
 
 - (void)backButtonPress{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)doneButtonPress{
-    self.record = [[DatabaseConnector getSharedDBAccessor] createRecord];
-    self.record.item = @"Wheat Bread";
-    [self.meal addRecord: self.record];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
