@@ -33,9 +33,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _commonFoods = [[DatabaseConnector getSharedDBAccessor] getRecentFoods];
-        for(Food *f in _commonFoods){
-            NSLog(@"%@", f.item);
-        }
     }
     return self;
 }
@@ -71,8 +68,7 @@
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
-    [self.tableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:@"Cell"];
+    //[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -150,8 +146,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
         
     }
@@ -164,6 +159,7 @@
     }
     cell.textLabel.text = f.item;
     cell.textLabel.font  = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0 ];
+    cell.detailTextLabel.text = [@"   " stringByAppendingString:f.quantifier];;
     
     return cell;
     

@@ -52,7 +52,7 @@ UILabel *clarificationLabel;
          forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
-    self.titleLabel.text = @"One more but of info...";
+    self.titleLabel.text = @"One more bit of info...";
     self.descriptionLabel.text = @"Sugars Per Unit of Insulin";
     self.clarificationLabel.text = @"Input the amount of sugars that one unit of insulin will reduce. This can be your best estimate. The algorithm builds off this value.";
     self.inputField.text = [NSString stringWithFormat:@"%i", (int)self.user.sugarsPerUnit];
@@ -67,6 +67,11 @@ UILabel *clarificationLabel;
 }
 
 - (IBAction)saveButtonPress:(id)sender{
+    double temp = [self.inputField.text doubleValue];
+    if (temp <= 0 ) {
+        temp  = 30;
+    }
+    self.user.sugarsPerUnit = temp;
     [self.user saveChanges];
     [self.inputField resignFirstResponder];
     [self.navigationController popToRootViewControllerAnimated:YES];

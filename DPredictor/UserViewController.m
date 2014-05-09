@@ -46,6 +46,7 @@ UILabel *clarificationLabel;
     
     self.titleLabel.text = @"Welcome, Enter Initial Data!";
     self.descriptionLabel.text = @"Carbs Per Unit of Insulin";
+    //self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
     self.clarificationLabel.text = @"Input the amount of carbs that one unit of insulin compensates for. This can be your best estimate. The algorithm builds off this value.";
     [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
     self.inputField.text = [NSString stringWithFormat:@"%i", (int)self.user.carbsPerUnit];
