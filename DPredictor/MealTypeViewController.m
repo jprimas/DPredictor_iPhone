@@ -50,6 +50,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 40;
+    self.tableView.tintColor = [UIColor colorWithRed:209/255.0 green:238/255.0 blue:216/255.0 alpha:1];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
@@ -116,6 +117,7 @@
     cell.textLabel.text = _options[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font  = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0 ];
+    cell.backgroundColor = [UIColor colorWithRed:218/255.0 green:241/255.0 blue:226/255.0 alpha:1];
     
     return cell;
     

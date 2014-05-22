@@ -25,6 +25,8 @@
 		42D2CCCB19032F3700145247 /* MealTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D2CCC919032F3700145247 /* MealTypeViewController.xib */; };
 		42D2CCCF19032F9A00145247 /* EditMealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D2CCCD19032F9A00145247 /* EditMealViewController.m */; };
 		42D2CCD019032F9A00145247 /* EditMealViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D2CCCE19032F9A00145247 /* EditMealViewController.xib */; };
+		42EE3509192DA0EA00CD85D1 /* EditUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42EE3507192DA0EA00CD85D1 /* EditUserViewController.m */; };
+		42EE350A192DA0EA00CD85D1 /* EditUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EE3508192DA0EA00CD85D1 /* EditUserViewController.xib */; };
 		42F180441900E5DB00706BFE /* BorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F180431900E5DB00706BFE /* BorderButton.m */; };
 		42F180461900E82600706BFE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F180451900E82600706BFE /* QuartzCore.framework */; };
 		42FDCD55190052CC0069CA4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FDCD54190052CC0069CA4F /* Foundation.framework */; };
@@ -90,6 +92,9 @@
 		42D2CCCC19032F9A00145247 /* EditMealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMealViewController.h; sourceTree = "<group>"; };
 		42D2CCCD19032F9A00145247 /* EditMealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMealViewController.m; sourceTree = "<group>"; };
 		42D2CCCE19032F9A00145247 /* EditMealViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditMealViewController.xib; sourceTree = "<group>"; };
+		42EE3506192DA0EA00CD85D1 /* EditUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditUserViewController.h; sourceTree = "<group>"; };
+		42EE3507192DA0EA00CD85D1 /* EditUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditUserViewController.m; sourceTree = "<group>"; };
+		42EE3508192DA0EA00CD85D1 /* EditUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditUserViewController.xib; sourceTree = "<group>"; };
 		42F180421900E5DB00706BFE /* BorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BorderButton.h; path = ../BorderButton.h; sourceTree = "<group>"; };
 		42F180431900E5DB00706BFE /* BorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BorderButton.m; path = ../BorderButton.m; sourceTree = "<group>"; };
 		42F180451900E82600706BFE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -297,6 +302,9 @@
 				42D2CCC31903253600145247 /* User2ViewController.xib */,
 				42FDCDAE190099D20069CA4F /* User.h */,
 				42FDCDAF190099D20069CA4F /* User.m */,
+				42EE3506192DA0EA00CD85D1 /* EditUserViewController.h */,
+				42EE3507192DA0EA00CD85D1 /* EditUserViewController.m */,
+				42EE3508192DA0EA00CD85D1 /* EditUserViewController.xib */,
 			);
 			name = UserData;
 			sourceTree = "<group>";
@@ -393,6 +401,7 @@
 				425233C6190848AB00488E7C /* plusSign_white.png in Resources */,
 				425233C9190848B700488E7C /* backArrow_black.png in Resources */,
 				422CE05919047F2A0061217F /* checkmark.png in Resources */,
+				42EE350A192DA0EA00CD85D1 /* EditUserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +457,7 @@
 				42FDCDB0190099D30069CA4F /* User.m in Sources */,
 				42FDCDAB190081A10069CA4F /* UserViewController.m in Sources */,
 				42FDCDA2190077D00069CA4F /* DatabaseConnector.m in Sources */,
+				42EE3509192DA0EA00CD85D1 /* EditUserViewController.m in Sources */,
 				42D2CCCA19032F3700145247 /* MealTypeViewController.m in Sources */,
 				42FDCD8E19005B720069CA4F /* Meal.m in Sources */,
 				42038E2F1905D16400EFB9F2 /* KeyboardToolbarView.m in Sources */,

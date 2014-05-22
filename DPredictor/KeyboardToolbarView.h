@@ -11,5 +11,6 @@
 @interface KeyboardToolbarView : UIView
 
 @property (nonatomic, strong) UIButton *doneButton;
+@property (nonatomic, strong) NSString *doneButtonText;
 
 @end

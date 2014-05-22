@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MenuViewController.h"
+#import "UserViewController.h"
+#import "User.h"
 
 @implementation AppDelegate
 
@@ -21,9 +23,14 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    User *u = [User getSharedUserAccessor];
     MenuViewController *menuVC = [[MenuViewController alloc]init];
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:menuVC];
+    if(!u.fromStorage || u.carbsPerUnit == 0 || u.sugarsPerUnit == 0){
+        UserViewController *userVC = [[UserViewController alloc] init];
+        [navController pushViewController:userVC animated:YES];
+    }
     //navController.navigationBar.hidden = YES;
     navController.navigationBar.tintColor = [UIColor whiteColor];
     navController.navigationBar.barTintColor = [UIColor colorWithRed:0/255.0 green:82/255.0 blue:235/255.0 alpha:1];

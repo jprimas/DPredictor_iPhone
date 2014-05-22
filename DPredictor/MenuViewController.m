@@ -7,10 +7,19 @@
 //
 
 #import "MenuViewController.h"
-#import "UserViewController.h"
+#import "EditUserViewController.h"
 #import "MealTypeViewController.h"
+#import "EditMealViewController.h"
+#import "DatabaseConnector.h"
+#import "Meal.h"
 
-@interface MenuViewController ()
+@interface MenuViewController (){
+
+    BOOL hasUnfinishedMeal;
+    Meal *meal;
+}
+
+@property (nonatomic, weak) IBOutlet UIButton *mealButton;
 
 @end
 
@@ -31,6 +40,17 @@
     self.title = @"DLogger";
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    hasUnfinishedMeal = [[DatabaseConnector getSharedDBAccessor] hasUnfinishedMeal];
+    if (hasUnfinishedMeal) {
+        meal =[[DatabaseConnector getSharedDBAccessor] getUnfinishedMeal];
+        self.mealButton.titleLabel.text = @"Finish Meal";
+    } else {
+        self.mealButton.titleLabel.text = @"Add New Meal";
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -38,13 +58,20 @@
 }
 
 - (IBAction)editUser:(id)sender{
-    UserViewController *userVC = [[UserViewController alloc] init];
-    [self.navigationController pushViewController:userVC animated:NO];
+    EditUserViewController *editUserVC = [[EditUserViewController alloc] init];
+    [self.navigationController pushViewController:editUserVC animated:NO];
 }
 
 -(IBAction)addMeal:(id)sender{
-    MealTypeViewController *mealVC = [[MealTypeViewController alloc] init];
-    [self.navigationController pushViewController:mealVC animated:YES];
+    if (!hasUnfinishedMeal) {
+        MealTypeViewController *mealVC = [[MealTypeViewController alloc] init];
+        [self.navigationController pushViewController:mealVC animated:YES];
+    }else{
+        EditMealViewController *mealVC = [[EditMealViewController alloc] init];
+        mealVC.meal = meal;
+        mealVC.newMeal = NO;
+        [self.navigationController pushViewController:mealVC animated:YES];
+    }
 }
 
 @end

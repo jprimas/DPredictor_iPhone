@@ -6,7 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditMealViewController">
             <connections>
+                <outlet property="enterBGLabel" destination="DMw-3U-C6F" id="T29-y3-eh3"/>
                 <outlet property="errorLabel" destination="END-gi-Ih7" id="w0c-TO-Pug"/>
+                <outlet property="nextButton" destination="2FD-TE-DTz" id="FyM-dL-Ugw"/>
                 <outlet property="pickerToolbar" destination="Dl1-1i-fIG" id="NP7-Js-RD6"/>
                 <outlet property="pickerView" destination="LVf-sN-s35" id="oxf-g2-Kzj"/>
                 <outlet property="tableView" destination="pbg-FV-IBe" id="Mud-QQ-5bY"/>
@@ -19,8 +21,8 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current BG Level:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMw-3U-C6F">
-                    <rect key="frame" x="40" y="45" width="148" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current BG Level:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMw-3U-C6F">
+                    <rect key="frame" x="40" y="45" width="143" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -35,13 +37,16 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="34" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pbg-FV-IBe">
                     <rect key="frame" x="0.0" y="110" width="320" height="305"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="separatorColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="sectionIndexTrackingBackgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="159" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FD-TE-DTz" customClass="BorderButton">
                     <rect key="frame" x="80" y="442" width="160" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.70518395659999999" green="0.77948331420000005" blue="0.90057200189999997" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Predict">
+                    <state key="normal" title="Complete">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

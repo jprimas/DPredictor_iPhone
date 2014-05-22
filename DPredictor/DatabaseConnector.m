@@ -190,6 +190,59 @@
 
 }
 
+- (BOOL) hasUnfinishedMeal {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"Meal"
+                                         inManagedObjectContext:self.context];
+    request.entity = e;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"levelAfter = -1 "];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:request error:&error];
+    if (!result) {
+        [NSException raise:@"Fetch failed"
+                    format:@"Reason: %@", [error localizedDescription]];
+    }
+    if([result count] > 0){
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+- (Meal *) getUnfinishedMeal {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"Meal"
+                                         inManagedObjectContext:self.context];
+    request.entity = e;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"levelAfter = -1 "];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sd = [NSSortDescriptor
+                            sortDescriptorWithKey:@"createdAt"
+                            ascending:NO];
+    request.sortDescriptors = @[sd];
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:request error:&error];
+    if (!result) {
+        [NSException raise:@"Fetch failed"
+                    format:@"Reason: %@", [error localizedDescription]];
+    }
+    if([result count] > 0){
+        return result[0];
+    }else{
+        return NULL;
+    }
+}
+
 
 
 

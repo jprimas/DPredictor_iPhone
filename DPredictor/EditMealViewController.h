@@ -10,8 +10,10 @@
 #import "SWTableViewCell.h"
 @class Meal;
 
-@interface EditMealViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface EditMealViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate, UIPickerViewDelegate, UIPickerViewDataSource>{
+}
 
 @property (atomic, strong) Meal *meal;
+@property (atomic) BOOL newMeal;
 
 @end

@@ -15,6 +15,7 @@
 #import "Meal.h"
 #import "Record.h"
 #import "Food.h"
+#import "DatabaseConnector.h"
 
 @interface EditMealViewController (){
     NSArray *_quantifiers;
@@ -31,6 +32,8 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UILabel *errorLabel;
+@property (nonatomic, weak) IBOutlet UILabel *enterBGLabel;
+@property (nonatomic, weak) IBOutlet UIButton *nextButton;
 
 @property (nonatomic, strong) NSMutableArray *records;
 
@@ -49,6 +52,7 @@
         _wieghts = [NSArray arrayWithObjects:@"Grams", @"Ounces", nil];
         _liquidWieghts = [NSArray arrayWithObjects:@"Milliliters", @"Liters", @"Teaspoons", @"Tablespoons", @"Cups", @"Pints", nil];
         _selectedRecord = nil;
+        self.newMeal = YES;
     }
     return self;
 }
@@ -57,7 +61,6 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    self.title = @"Add Food";
     UIImage* whiteBackButtonImg = [UIImage imageNamed:@"backArrow_white.png"];
     UIImage* blackBackButtonImg = [UIImage imageNamed:@"backArrow_black.png"];
     CGRect frameimg = CGRectMake(0, 0, whiteBackButtonImg.size.width, whiteBackButtonImg.size.height);
@@ -102,11 +105,27 @@
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self clearInputPopups];
-    if (self.meal.levelBefore != 0) {
-        self.textField.text = [NSString stringWithFormat:@"%d", self.meal.levelBefore ];
-    }
     self.records = [[self.meal.records allObjects] mutableCopy];
     [self.tableView reloadData];
+    
+    if(!self.newMeal){
+        self.title = @"Finalize Meal";
+        self.enterBGLabel.text = @"Current BG Level:";
+        self.nextButton.titleLabel.text = @"Complete";
+        self.nextButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        if (self.meal.levelAfter > 0) {
+            self.textField.text = [NSString stringWithFormat:@"%d", self.meal.levelAfter ];
+        }
+    }else{
+        self.title = @"Add Food";
+        self.enterBGLabel.text = @"Current BG Level:";
+        self.nextButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        [self.nextButton setTitle:@"Predict" forState:UIControlStateNormal];
+        //
+        if (self.meal.levelBefore > 0) {
+            self.textField.text = [NSString stringWithFormat:@"%d", self.meal.levelBefore ];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,7 +171,11 @@
         self.errorLabel.hidden = NO;
         return;
     }else{
-        self.meal.levelBefore = _sugarLevel;
+        if(self.newMeal){
+            self.meal.levelBefore = _sugarLevel;
+        } else {
+            self.meal.levelAfter = _sugarLevel;
+        }
     }
     if ([self.meal.records count] <= 0) {
         self.errorLabel.text = @"Enter the food you will eat this meal.";
@@ -160,9 +183,15 @@
         return;
     }
     
-    PredictionViewController *predictionVC = [[PredictionViewController alloc] init];
-    predictionVC.meal = self.meal;
-    [self.navigationController pushViewController:predictionVC animated:YES];
+    if(self.newMeal){
+        PredictionViewController *predictionVC = [[PredictionViewController alloc] init];
+        predictionVC.meal = self.meal;
+        [self.navigationController pushViewController:predictionVC animated:YES];
+    }else{
+        [[DatabaseConnector getSharedDBAccessor] saveChanges];
+        //TODO: Update predictor
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 -(void)doneWithPicker{

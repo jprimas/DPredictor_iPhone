@@ -48,17 +48,13 @@
          forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
-    UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
-    [keyboardToolbar sizeToFit];
-    [keyboardToolbar setBarTintColor:[UIColor colorWithRed:170/255.0 green:175/255.0 blue:181/255.0 alpha:1]];
-    KeyboardToolbarView *keyboardToolbarView = [[KeyboardToolbarView alloc] initWithFrame:keyboardToolbar.frame];
-    [keyboardToolbarView.doneButton addTarget:self action:@selector(doneButtonPress) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithCustomView:keyboardToolbarView];
-    
-    [keyboardToolbar setItems:[NSArray arrayWithObjects:doneButton, nil]];
-    self.unitInput.inputAccessoryView = keyboardToolbar;
-    
     _prediction = 5; //TODO: get actual prediction
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.unitInput becomeFirstResponder];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,6 +73,7 @@
 }
 
 -(IBAction)finishButtonPress:(id)sender{
+    //complete and save meal/record/food
     self.meal.unitsPredicted = _prediction;
     self.meal.unitsTaken = _unitsTaken;
     self.meal.levelAfter = -1;
@@ -86,8 +83,18 @@
     }
     self.meal.totalCarbs = carbCount;
     [[DatabaseConnector getSharedDBAccessor] saveChanges];
+    
+    //Create a Notifcation reminder
+    UILocalNotification *note = [[UILocalNotification alloc] init];
+    note.alertBody = @"Finish logging your meal now.";
+    NSDate *currentDate = [NSDate date];
+    NSTimeInterval twoHours = 1.5 * 60 * 60;
+    NSDate *newDate = [currentDate dateByAddingTimeInterval:twoHours];
+    note.fireDate = newDate;
+    [[UIApplication sharedApplication] scheduleLocalNotification:note];
+    
+    //Done!
     [self.navigationController popToRootViewControllerAnimated:YES];
-    //complete and save meal/record/food
 }
 
 @end

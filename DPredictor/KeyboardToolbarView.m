@@ -20,7 +20,8 @@
         
         self.doneButton = [[BorderButton alloc] init];
         [self.doneButton setFrame:CGRectMake(220.0f, 9.0f, 70.0f, 23.0f)];
-        [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
+        NSString *title = @"Done";
+        [self.doneButton setTitle:title forState:UIControlStateNormal];
         
         [self addSubview:self.doneButton];
     }
