@@ -1,49 +1,19 @@
 //
-//  Meal.m
+//  Predictor.m
 //  DPredictor
 //
-//  Created by Joshua Primas on 4/17/14.
+//  Created by Joshua Primas on 5/22/14.
 //  Copyright (c) 2014 Joshua Primas. All rights reserved.
 //
 
+#import "Predictor.h"
 #import "Meal.h"
 #import "User.h"
 #import "Record.h"
 #import "Food.h"
 #import "DatabaseConnector.h"
 
-
-@implementation Meal{
-    NSMutableSet *_privRecords;
-}
-
-@dynamic totalCarbs;
-@dynamic levelBefore;
-@dynamic levelAfter;
-@dynamic unitsTaken;
-@dynamic unitsPredicted;
-@dynamic mealType;
-@dynamic createdAt;
-@dynamic updatedAt;
-@dynamic records;
-
-- (void)awakeFromInsert
-{
-    [super awakeFromInsert];
-    NSDate *currentDate = [NSDate date];
-    self.createdAt = currentDate;
-    self.updatedAt = currentDate;
-    
-}
-
-- (void)addRecord:(Record *)record{
-    [self.records addObject:record];
-}
-
-
-- (void)removeRecord:(Record *)record{
-    [self.records removeObject:record];
-}
+@implementation Predictor
 
 typedef enum SugarLevel : NSUInteger {
     tooLowSugar,
@@ -94,8 +64,8 @@ typedef enum SugarLevel : NSUInteger {
         sugarsPerUnitScore = sumOfScores;
     }
     double sumOfScoresFlipped = (sumOfScores - totalFoodScore)/sumOfScores
-    + (sumOfScores - user.carbsPerUnitScore)/sumOfScores
-    + (sumOfScores - sugarsPerUnitScore)/sumOfScores;
+                              + (sumOfScores - user.carbsPerUnitScore)/sumOfScores
+                              + (sumOfScores - sugarsPerUnitScore)/sumOfScores;
     
     double foodsDistributionPercent = ((sumOfScores - totalFoodScore) / sumOfScores) / sumOfScoresFlipped;
     double carbsDistributionPercent = ((sumOfScores - user.carbsPerUnitScore) / sumOfScores) / sumOfScoresFlipped;
@@ -118,9 +88,9 @@ typedef enum SugarLevel : NSUInteger {
         double predictedCarbCount = food.carbs * record.amount;
         
         double singleFoodDistributionPercent = [self getFoodModifierPercentWithFoodScore:food.score
-                                                                          totalFoodScore:totalFoodScore
-                                                                               carbCount:food.carbs
-                                                                          totalCarbCount:meal.totalCarbs];
+                                                                totalFoodScore:totalFoodScore
+                                                                     carbCount:food.carbs
+                                                                totalCarbCount:meal.totalCarbs];
         double newCarbCount = predictedCarbCount + extraCarbsForFood * singleFoodDistributionPercent;
         double updatedCarbCount = ((food.score * food.carbs) + newCarbCount) / (double)(food.score + 1) / record.amount;
         food.carbs = updatedCarbCount;

@@ -22,4 +22,6 @@
 @property (nonatomic, retain) Meal *meal;
 @property (nonatomic, retain) Food *food;
 
+-(void) calculateCarbCount;
+
 @end

@@ -11,9 +11,10 @@
 #import "Meal.h"
 #import "Record.h"
 #import "DatabaseConnector.h"
+#import "Predictor.h"
 
 @interface PredictionViewController (){
-    int _prediction;
+    double _prediction;
     int _unitsTaken;
 }
 
@@ -28,7 +29,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _prediction = 0;
+        _prediction = 0.0;
     }
     return self;
 }
@@ -48,7 +49,30 @@
          forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
-    _prediction = 5; //TODO: get actual prediction
+    
+    //complete and save meal/record/food
+    self.meal.unitsPredicted = _prediction;
+    self.meal.unitsTaken = _unitsTaken;
+    self.meal.levelAfter = -1;
+    double carbCount = 0;
+    for (Record * r in self.meal.records){
+        carbCount += r.carbs;
+    }
+    self.meal.totalCarbs = carbCount;
+    
+    //Calculate Prediction
+    _prediction = [Predictor getPredictionForMeal:self.meal];
+    _predictionLabel.text = [NSString stringWithFormat:@"%.2f", _prediction];
+    self.meal.unitsPredicted = round(_prediction);
+    
+    //Create a Notifcation reminder
+    UILocalNotification *note = [[UILocalNotification alloc] init];
+    note.alertBody = @"Finish logging your meal now.";
+    NSDate *currentDate = [NSDate date];
+    NSTimeInterval twoHours = 1.5 * 60 * 60;
+    NSDate *newDate = [currentDate dateByAddingTimeInterval:twoHours];
+    note.fireDate = newDate;
+    [[UIApplication sharedApplication] scheduleLocalNotification:note];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -73,28 +97,14 @@
 }
 
 -(IBAction)finishButtonPress:(id)sender{
-    //complete and save meal/record/food
-    self.meal.unitsPredicted = _prediction;
-    self.meal.unitsTaken = _unitsTaken;
-    self.meal.levelAfter = -1;
-    double carbCount = 0;
-    for (Record * r in self.meal.records){
-        carbCount += r.carbs;
+    double unitsTaken = [self.unitInput.text doubleValue];
+    if(unitsTaken >= 0){
+        self.meal.unitsTaken = unitsTaken;
+        [[DatabaseConnector getSharedDBAccessor] saveChanges];
+    
+        //Done!
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
-    self.meal.totalCarbs = carbCount;
-    [[DatabaseConnector getSharedDBAccessor] saveChanges];
-    
-    //Create a Notifcation reminder
-    UILocalNotification *note = [[UILocalNotification alloc] init];
-    note.alertBody = @"Finish logging your meal now.";
-    NSDate *currentDate = [NSDate date];
-    NSTimeInterval twoHours = 1.5 * 60 * 60;
-    NSDate *newDate = [currentDate dateByAddingTimeInterval:twoHours];
-    note.fireDate = newDate;
-    [[UIApplication sharedApplication] scheduleLocalNotification:note];
-    
-    //Done!
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

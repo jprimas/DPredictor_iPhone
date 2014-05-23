@@ -51,7 +51,7 @@
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"
                                                                     style:UIBarButtonItemStyleDone
                                                                    target:self
-                                                                   action:@selector(doneButtonPress)];
+                                                                   action:@selector(saveButtonPress)];
     self.navigationItem.rightBarButtonItem = rightButton;
     
     UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
@@ -81,6 +81,12 @@
 }
 
 - (void)saveButtonPress{
+    _user.carbsPerUnit = [self.carbsIF.text doubleValue];
+    _user.sugarsPerUnit = [self.sugarsIF.text doubleValue];
+    _user.breakfastCorrection = [self.breakfastIF.text doubleValue];
+    _user.lunchCorrection = [self.lunchIF.text doubleValue];
+    _user.dinnerCorrection = [self.dinnerIF.text doubleValue];
+    [_user saveChanges];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

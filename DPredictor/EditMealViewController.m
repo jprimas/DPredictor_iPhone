@@ -16,6 +16,7 @@
 #import "Record.h"
 #import "Food.h"
 #import "DatabaseConnector.h"
+#import "Predictor.h"
 
 @interface EditMealViewController (){
     NSArray *_quantifiers;
@@ -189,7 +190,7 @@
         [self.navigationController pushViewController:predictionVC animated:YES];
     }else{
         [[DatabaseConnector getSharedDBAccessor] saveChanges];
-        //TODO: Update predictor
+        [Predictor updatePredictorWithMeal:self.meal];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
@@ -405,6 +406,8 @@
             default:
                 break;
         }
+        [_selectedRecord calculateCarbCount];
+        
         [self.tableView reloadData];
     }
 }
