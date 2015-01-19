@@ -11,7 +11,6 @@
 #import "Meal.h"
 #import "Record.h"
 #import "DatabaseConnector.h"
-#import "Predictor.h"
 
 @interface PredictionViewController (){
     double _prediction;
@@ -61,7 +60,7 @@
     self.meal.totalCarbs = carbCount;
     
     //Calculate Prediction
-    _prediction = [Predictor getPredictionForMeal:self.meal];
+    _prediction = [self.meal getPrediction];
     _predictionLabel.text = [NSString stringWithFormat:@"%.2f", _prediction];
     self.meal.unitsPredicted = round(_prediction);
     

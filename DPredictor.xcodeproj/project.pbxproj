@@ -19,7 +19,6 @@
 		425233C6190848AB00488E7C /* plusSign_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 425233C4190848AB00488E7C /* plusSign_white.png */; };
 		425233C9190848B700488E7C /* backArrow_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 425233C7190848B700488E7C /* backArrow_black.png */; };
 		425233CA190848B700488E7C /* backArrow_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 425233C8190848B700488E7C /* backArrow_white.png */; };
-		427A1B83192E950E00291ECB /* Predictor.m in Sources */ = {isa = PBXBuildFile; fileRef = 427A1B82192E950E00291ECB /* Predictor.m */; };
 		42D2CCC41903253600145247 /* User2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D2CCC21903253600145247 /* User2ViewController.m */; };
 		42D2CCC51903253600145247 /* User2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42D2CCC31903253600145247 /* User2ViewController.xib */; };
 		42D2CCCA19032F3700145247 /* MealTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D2CCC819032F3700145247 /* MealTypeViewController.m */; };
@@ -84,8 +83,6 @@
 		425233C4190848AB00488E7C /* plusSign_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusSign_white.png; sourceTree = "<group>"; };
 		425233C7190848B700488E7C /* backArrow_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow_black.png; sourceTree = "<group>"; };
 		425233C8190848B700488E7C /* backArrow_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrow_white.png; sourceTree = "<group>"; };
-		427A1B81192E950E00291ECB /* Predictor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Predictor.h; sourceTree = "<group>"; };
-		427A1B82192E950E00291ECB /* Predictor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Predictor.m; sourceTree = "<group>"; };
 		42D2CCC11903253600145247 /* User2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User2ViewController.h; sourceTree = "<group>"; };
 		42D2CCC21903253600145247 /* User2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User2ViewController.m; sourceTree = "<group>"; };
 		42D2CCC31903253600145247 /* User2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = User2ViewController.xib; sourceTree = "<group>"; };
@@ -231,8 +228,6 @@
 				42FDCDA319007C510069CA4F /* MenuViewController.h */,
 				42FDCDA419007C510069CA4F /* MenuViewController.m */,
 				42FDCDA519007C510069CA4F /* MenuViewController.xib */,
-				427A1B81192E950E00291ECB /* Predictor.h */,
-				427A1B82192E950E00291ECB /* Predictor.m */,
 				42FDCD6B190052CC0069CA4F /* Images.xcassets */,
 				42FDCD68190052CC0069CA4F /* DPredictor.xcdatamodeld */,
 				42FDCD5D190052CC0069CA4F /* Supporting Files */,
@@ -476,7 +471,6 @@
 				422CE05619047C580061217F /* AddFoodViewController.m in Sources */,
 				42FDCD6A190052CC0069CA4F /* DPredictor.xcdatamodeld in Sources */,
 				42FDCD9119005B840069CA4F /* Record.m in Sources */,
-				427A1B83192E950E00291ECB /* Predictor.m in Sources */,
 				42FDCD63190052CC0069CA4F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

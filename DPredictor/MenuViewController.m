@@ -45,9 +45,9 @@
     hasUnfinishedMeal = [[DatabaseConnector getSharedDBAccessor] hasUnfinishedMeal];
     if (hasUnfinishedMeal) {
         meal =[[DatabaseConnector getSharedDBAccessor] getUnfinishedMeal];
-        self.mealButton.titleLabel.text = @"Finish Meal";
+        [self.mealButton setTitle:@"Finish Meal" forState:UIControlStateNormal];
     } else {
-        self.mealButton.titleLabel.text = @"Add New Meal";
+        [self.mealButton setTitle:@"Add New Meal" forState:UIControlStateNormal];
     }
 }
 

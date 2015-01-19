@@ -8,6 +8,7 @@
 
 #import "DatabaseConnector.h"
 #import "Food.h"
+#import "Meal.h"
 
 @interface DatabaseConnector ()
 
@@ -240,6 +241,41 @@
         return result[0];
     }else{
         return NULL;
+    }
+}
+
+- (double) getAverageCarbErrorForMealType:(NSString *)mealType{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"Meal"
+                                         inManagedObjectContext:self.context];
+    request.entity = e;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"mealType = %@", mealType];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sd = [NSSortDescriptor
+                            sortDescriptorWithKey:@"createdAt"
+                            ascending:NO];
+    request.sortDescriptors = @[sd];
+    
+    [request setFetchLimit:200];
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:request error:&error];
+    if (!result) {
+        [NSException raise:@"Fetch failed"
+                    format:@"Reason: %@", [error localizedDescription]];
+    }
+    if([result count] > 0){
+        double totalError = 0;
+        for(Meal *meal in result){
+            totalError += meal.levelAfter - 130;
+        }
+        return totalError / [result count];
+    }else{
+        return 0;
     }
 }
 

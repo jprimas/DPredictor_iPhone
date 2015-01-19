@@ -16,7 +16,6 @@
 #import "Record.h"
 #import "Food.h"
 #import "DatabaseConnector.h"
-#import "Predictor.h"
 
 @interface EditMealViewController (){
     NSArray *_quantifiers;
@@ -48,7 +47,7 @@
     if (self) {
         _sugarLevel = 0;
         _quantifiers = [[NSArray alloc] init];
-        _numbers = [NSArray arrayWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"30", nil];
+        _numbers = [NSArray arrayWithObjects:@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
         _decimals = [NSArray arrayWithObjects:@".0", @".1", @".2", @".3", @".4", @".5", @".6", @".7", @".8", @".9", nil];
         _wieghts = [NSArray arrayWithObjects:@"Grams", @"Ounces", nil];
         _liquidWieghts = [NSArray arrayWithObjects:@"Milliliters", @"Liters", @"Teaspoons", @"Tablespoons", @"Cups", @"Pints", nil];
@@ -75,6 +74,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 40;
+    self.tableView.tintColor = [UIColor colorWithRed:209/255.0 green:238/255.0 blue:216/255.0 alpha:1];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
@@ -190,7 +190,7 @@
         [self.navigationController pushViewController:predictionVC animated:YES];
     }else{
         [[DatabaseConnector getSharedDBAccessor] saveChanges];
-        [Predictor updatePredictorWithMeal:self.meal];
+        [self.meal updatePredictor];
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
@@ -199,6 +199,10 @@
     self.pickerToolbar.hidden = YES;
     self.pickerView.hidden = YES;
 }
+
+////////////////////
+///FOR TABLE VIEW///
+////////////////////
 
 //Number of sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -291,6 +295,8 @@
         cell.textLabel.backgroundColor = [UIColor whiteColor];
         cell.textLabel.text =r.food.item;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"   %.1f %@",r.amount,r.quantifier];
+        cell.textLabel.font  = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0 ];
+        cell.backgroundColor = [UIColor colorWithRed:218/255.0 green:241/255.0 blue:226/255.0 alpha:1];
         return cell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RegularCell"];
@@ -304,7 +310,8 @@
         cell.textLabel.backgroundColor = [UIColor whiteColor];
         cell.textLabel.text = @"Add a Food Item";
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        
+        cell.textLabel.font  = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0 ];
+        cell.backgroundColor = [UIColor colorWithRed:218/255.0 green:241/255.0 blue:226/255.0 alpha:1];
         return cell;
     }
 }

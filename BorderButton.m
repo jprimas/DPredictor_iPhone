@@ -53,6 +53,8 @@
     layer.cornerRadius = 2.0f;
     layer.borderWidth = 0;
     layer.backgroundColor = [UIColor colorWithRed:0/255.0 green:82/255.0 blue:235/255.0 alpha:1].CGColor;
+    [super setTitleColor:[UIColor colorWithRed:0/255.0 green:82/255.0 blue:235/255.0 alpha:1] forState:UIControlStateHighlighted];
+    [super setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 - (void)drawHighlightBackgroundLayer
@@ -75,12 +77,8 @@
     _highlightBackgroundLayer.frame = self.bounds;
     
     [super layoutSubviews];
-    
     if (self.state == UIControlStateHighlighted) {
-        self.titleLabel.textColor = [UIColor colorWithRed:0/255.0 green:82/255.0 blue:235/255.0 alpha:1];
         self.titleLabel.alpha = 1.0;
-    } else {
-        self.titleLabel.textColor = [UIColor whiteColor];
     }
 }
 

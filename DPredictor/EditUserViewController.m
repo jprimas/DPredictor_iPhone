@@ -58,7 +58,7 @@
     [keyboardToolbar sizeToFit];
     [keyboardToolbar setBarTintColor:[UIColor colorWithRed:170/255.0 green:175/255.0 blue:181/255.0 alpha:1]];
     KeyboardToolbarView *keyboardToolbarView = [[KeyboardToolbarView alloc] initWithFrame:keyboardToolbar.frame];
-    keyboardToolbarView.doneButtonText = @"Din";
+    keyboardToolbarView.doneButtonText = @"Done";
     [keyboardToolbarView.doneButton addTarget:self action:@selector(doneButtonPress) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithCustomView:keyboardToolbarView];
     [keyboardToolbar setItems:[NSArray arrayWithObjects:doneButton, nil]];
@@ -110,7 +110,6 @@
 
 -(BOOL) textFieldShouldBeginEditing:(UITextField *)textField
 {
-    NSLog(@"begin: %@", textField.text);
     if ([textField isEqual:self.lunchIF])
     {
         self.scrollView.contentOffset = CGPointMake(0, 85);

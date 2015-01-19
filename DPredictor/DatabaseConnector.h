@@ -32,9 +32,7 @@
 
 //Methods to do with Meal Entity
 - (Meal *)createMeal;
-//- (Meal *) getMealWithId:(NSManagedObjectID *)id;
-//- (Meal *) getUnfinishedMeal;
-//- (NSArray *) getMealsStartingFrom:(int)index;
+- (double) getAverageCarbErrorForMealType:(NSString *)mealType;
 
 //Methods to do with Record Entity
 - (Record *) createRecord;

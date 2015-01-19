@@ -51,20 +51,20 @@ typedef enum SugarLevel : NSUInteger {
     tooHighSugar
 } SugarLevel;
 
-+ (double) getPredictionForMeal:(Meal *)meal {
+- (double) getPrediction {
     User *user = [User getSharedUserAccessor];
-    double unitsFromMeal = meal.totalCarbs / (user.carbsPerUnit);
+    double unitsFromMeal = self.totalCarbs / (user.carbsPerUnit + [self getMealCorrection]);
     double unitsFromSugar = 0;
-    if(meal.levelBefore < 90){
-        unitsFromSugar = (meal.levelBefore - 100) / user.sugarsPerUnit;
-    }else if(meal.levelBefore > 110){
-        unitsFromSugar = (meal.levelBefore - 120) / user.sugarsPerUnit;
+    if(self.levelBefore < 90){
+        unitsFromSugar = (self.levelBefore - 100) / user.sugarsPerUnit;
+    }else if(self.levelBefore > 110){
+        unitsFromSugar = (self.levelBefore - 120) / user.sugarsPerUnit;
     }
     return unitsFromMeal + unitsFromSugar;
 }
 
-+ (BOOL) updatePredictorWithMeal:(Meal *)meal{
-    if(meal.levelBefore < 0 || meal.levelAfter < 0 || meal.records == nil || [meal.records count] == 0){
+- (BOOL) updatePredictor{
+    if(self.levelBefore < 0 || self.levelAfter < 0 || self.records == nil || [self.records count] == 0){
         return NO;
     }
     User *user = [User getSharedUserAccessor];
@@ -72,21 +72,21 @@ typedef enum SugarLevel : NSUInteger {
     NSLog(@"old sugarsPerUnit: %f", user.sugarsPerUnit);
     int sugarsPerUnitScore = user.sugarsPerUnitScore;
     int bolusAmt = 0;
-    if(meal.levelBefore < 90){
-        bolusAmt = (meal.levelBefore - 100) / user.sugarsPerUnit;
-    }else if(meal.levelBefore > 110){
-        bolusAmt = (meal.levelBefore - 120) / user.sugarsPerUnit;
+    if(self.levelBefore < 90){
+        bolusAmt = (self.levelBefore - 100) / user.sugarsPerUnit;
+    }else if(self.levelBefore > 110){
+        bolusAmt = (self.levelBefore - 120) / user.sugarsPerUnit;
     }
-    double excessInsulinTaken = meal.unitsTaken - meal.unitsPredicted;
-    double finalExcessSugar = meal.levelAfter - 130;
-    double excessCarbs = (finalExcessSugar / user.sugarsPerUnit + excessInsulinTaken) * user.carbsPerUnit;
+    double excessInsulinTaken = self.unitsTaken - self.unitsPredicted;
+    double finalExcessSugar = self.levelAfter - 130;
+    double excessCarbs = (finalExcessSugar / user.sugarsPerUnit + excessInsulinTaken) * (user.carbsPerUnit + [self getMealCorrection]);
     int totalFoodScore = 0;
-    for(Record *record in meal.records){
+    for(Record *record in self.records){
         totalFoodScore += record.food.score;
     }
-    NSLog(@"Total carb count: %f", meal.totalCarbs);
+    NSLog(@"Total carb count: %f", self.totalCarbs);
     double totalFoodScoreFlipped = 0;
-    for(Record *record in meal.records){
+    for(Record *record in self.records){
         totalFoodScoreFlipped += (totalFoodScore - record.food.score) / (double)totalFoodScore;
     }
     double sumOfScores = totalFoodScore + user.carbsPerUnitScore + sugarsPerUnitScore;
@@ -111,7 +111,7 @@ typedef enum SugarLevel : NSUInteger {
     NSLog(@"extraCarbsForSugarsPerUnit: %f", extraCarbsForSugarsPerUnit);
     
     //Update Food
-    for(Record *record in meal.records){
+    for(Record *record in self.records){
         Food *food = record.food;
         NSLog(@"Updating Food Item: %@", food.item);
         NSLog(@"Previous Food Carb Count: %f", food.carbs);
@@ -120,28 +120,28 @@ typedef enum SugarLevel : NSUInteger {
         double singleFoodDistributionPercent = [self getFoodModifierPercentWithFoodScore:food.score
                                                                           totalFoodScore:totalFoodScore
                                                                                carbCount:food.carbs
-                                                                          totalCarbCount:meal.totalCarbs];
+                                                                          totalCarbCount:self.totalCarbs];
         double newCarbCount = predictedCarbCount + extraCarbsForFood * singleFoodDistributionPercent;
         double updatedCarbCount = ((food.score * food.carbs) + newCarbCount) / (double)(food.score + 1) / record.amount;
         food.carbs = updatedCarbCount;
         //Update Food Score
-        if([self getMealSuccess: meal]  == tooLowSugar && excessInsulinTaken > 1){
+        if([self getMealSuccess]  == tooLowSugar && excessInsulinTaken > 1){
             food.score = MAX(1, food.score + 1);
-        }else if([self getMealSuccess: meal]  == tooLowSugar && excessInsulinTaken <= 1 && excessInsulinTaken >= -1){
+        }else if([self getMealSuccess]  == tooLowSugar && excessInsulinTaken <= 1 && excessInsulinTaken >= -1){
             food.score = MAX(1, food.score - 1);
-        }else if([self getMealSuccess: meal]  == tooLowSugar && excessInsulinTaken < -1){
+        }else if([self getMealSuccess]  == tooLowSugar && excessInsulinTaken < -1){
             food.score = MAX(1, food.score - 5);
-        }else if([self getMealSuccess: meal]  == perfectSugar && excessInsulinTaken > 1){
+        }else if([self getMealSuccess]  == perfectSugar && excessInsulinTaken > 1){
             food.score = MAX(1, food.score - 2);
-        }else if([self getMealSuccess: meal]  == perfectSugar && excessInsulinTaken <= 1 && excessInsulinTaken >= -1){
+        }else if([self getMealSuccess]  == perfectSugar && excessInsulinTaken <= 1 && excessInsulinTaken >= -1){
             food.score = MAX(1, food.score + 6);
-        }else if([self getMealSuccess: meal]  == perfectSugar && excessInsulinTaken < -1){
+        }else if([self getMealSuccess]  == perfectSugar && excessInsulinTaken < -1){
             food.score = MAX(1, food.score - 2);
-        }else if([self getMealSuccess: meal]  == tooHighSugar && excessInsulinTaken > 1){
+        }else if([self getMealSuccess]  == tooHighSugar && excessInsulinTaken > 1){
             food.score = MAX(1, food.score - 5);
-        }else if([self getMealSuccess: meal]  == tooHighSugar && excessInsulinTaken <= 1 && excessInsulinTaken >= -1){
+        }else if([self getMealSuccess]  == tooHighSugar && excessInsulinTaken <= 1 && excessInsulinTaken >= -1){
             food.score = MAX(1, food.score - 1);
-        }else if([self getMealSuccess: meal]  == tooHighSugar && excessInsulinTaken < -1){
+        }else if([self getMealSuccess]  == tooHighSugar && excessInsulinTaken < -1){
             food.score = MAX(1, food.score + 1);
         }
         
@@ -149,7 +149,7 @@ typedef enum SugarLevel : NSUInteger {
     }
     
     //Update Units per Carb
-    double newCarbsPerUnit = user.carbsPerUnit - (extraCarbsForCarbsPerUnit / fabs(meal.unitsPredicted));
+    double newCarbsPerUnit = user.carbsPerUnit - (extraCarbsForCarbsPerUnit / fabs(self.unitsPredicted));
     double updatedCarbsPerUnit = (user.carbsPerUnitScore * user.carbsPerUnit + newCarbsPerUnit) / (user.carbsPerUnitScore + 1);
     user.carbsPerUnit = updatedCarbsPerUnit;
     user.carbsPerUnitScore = user.carbsPerUnitScore + 1;
@@ -167,7 +167,7 @@ typedef enum SugarLevel : NSUInteger {
     NSLog(@"New carbsPerUnit: %f", user.carbsPerUnit);
     NSLog(@"New sugarsPerUnit: %f", user.sugarsPerUnit);
     
-    
+    //Update meal corrections
     
     
     [user saveChanges];
@@ -176,7 +176,7 @@ typedef enum SugarLevel : NSUInteger {
     return YES;
 }
 
-+ (double) getFoodModifierPercentWithFoodScore: (double)foodScore
+- (double) getFoodModifierPercentWithFoodScore: (double)foodScore
                                 totalFoodScore: (double)totalFoodScore
                                      carbCount: (double)carbCount
                                 totalCarbCount: (double)totalCarbCount {
@@ -189,18 +189,41 @@ typedef enum SugarLevel : NSUInteger {
     }
 }
 
-+ (SugarLevel) getMealSuccess: (Meal *) meal {
-    if(meal.levelAfter >= 90 && meal.levelAfter <= 145){
+- (SugarLevel) getMealSuccess {
+    if(self.levelAfter >= 90 && self.levelAfter <= 145){
         return perfectSugar;
-    } else if(meal.levelAfter < 90){
+    } else if(self.levelAfter < 90){
         return tooLowSugar;
     } else {
         return tooHighSugar;
     }
 }
 
-+ (void) updateMealCorrections {
+- (void) updateMealCorrections {
+    User *user = [User getSharedUserAccessor];
+    DatabaseConnector *dbc = [DatabaseConnector getSharedDBAccessor];
+    double breakfastCarbError = [dbc getAverageCarbErrorForMealType:@"Breakfast"];
+    double lunchCarbError = [dbc getAverageCarbErrorForMealType:@"Lunch"];
+    double dinnerCarbError = [dbc getAverageCarbErrorForMealType:@"Dinner"];
+    double meanCarbError = (breakfastCarbError + lunchCarbError + dinnerCarbError) / 3;
     
+    //double temp = mean - breakfastCarbError;
+    //FIXME
+    
+    
+}
+
+- (double) getMealCorrection{
+    User *user = [User getSharedUserAccessor];
+    if ([self.mealType isEqualToString: @"Breakfast"]) {
+        return user.breakfastCorrection;
+    } else if ([self.mealType isEqualToString: @"Lunch"]) {
+        return user.lunchCorrection;
+    }else if ([self.mealType isEqualToString: @"Dinner"]) {
+        return user.dinnerCorrection;
+    } else {
+        return 0.0;
+    }
 }
 
 

@@ -65,10 +65,11 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 40;
+    [self.tableView setBackgroundColor:[UIColor colorWithRed:218/255.0 green:241/255.0 blue:226/255.0 alpha:1]];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
-    //[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -160,7 +161,8 @@
     cell.textLabel.text = f.item;
     cell.textLabel.font  = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0 ];
     cell.detailTextLabel.text = [@"   " stringByAppendingString:f.quantifier];;
-    
+    cell.textLabel.font  = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0 ];
+    cell.backgroundColor = [UIColor colorWithRed:218/255.0 green:241/255.0 blue:226/255.0 alpha:1];
     return cell;
     
 }
