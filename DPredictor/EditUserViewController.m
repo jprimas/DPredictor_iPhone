@@ -9,6 +9,7 @@
 #import "EditUserViewController.h"
 #import "User.h"
 #import "KeyboardToolbarView.h"
+#import "ViewFoodItemsViewController.h"
 
 @interface EditUserViewController (){
     User *_user;
@@ -122,6 +123,11 @@
     }
     
     return YES;
+}
+
+-(IBAction)viewFoods:(id)sender {
+    ViewFoodItemsViewController *viewFoodItemsVC = [[ViewFoodItemsViewController alloc] init];
+    [self.navigationController pushViewController:viewFoodItemsVC animated:YES];
 }
 
 @end

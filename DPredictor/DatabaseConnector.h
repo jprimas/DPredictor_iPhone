@@ -28,6 +28,7 @@
 - (BOOL) alreadyExistsWithName:(NSString *)item withQuantifier:(NSString *)quantifer;
 - (BOOL) hasUnfinishedMeal;
 - (Meal *) getUnfinishedMeal;
+- (NSArray *) getAllFoodRecords;
 //- (Food *)getFoodWithId:(NSManagedObjectID *)id;
 
 //Methods to do with Meal Entity

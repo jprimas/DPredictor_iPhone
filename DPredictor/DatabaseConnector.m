@@ -244,6 +244,22 @@
     }
 }
 
+- (NSArray *) getAllFoodRecords {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"Food"
+                                         inManagedObjectContext:self.context];
+    request.entity = e;
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:request error:&error];
+    if (!result) {
+        [NSException raise:@"Fetch failed"
+                    format:@"Reason: %@", [error localizedDescription]];
+    }
+    return result;
+}
+
 - (double) getAverageCarbErrorForMealType:(NSString *)mealType{
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     

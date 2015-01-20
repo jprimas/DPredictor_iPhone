@@ -158,7 +158,7 @@
 
 // Do something with the selected row.
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    _quantifierIndex = row;
+    _quantifierIndex = (int)row;
     self.foodQuantifierInput.text = _quantifiers[_quantifierIndex];
     self.quantifierLabel.text = _quantifiers[_quantifierIndex];
 }

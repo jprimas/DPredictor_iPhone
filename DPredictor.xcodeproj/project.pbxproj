@@ -54,6 +54,8 @@
 		42FDCDAC190081A10069CA4F /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FDCDAA190081A10069CA4F /* UserViewController.xib */; };
 		42FDCDB0190099D30069CA4F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FDCDAF190099D20069CA4F /* User.m */; };
 		7FA0419FC4704D809A91D90A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BE779C19CD4CDE8E2C7F1C /* libPods.a */; };
+		89B42CDF1A6E126700352A79 /* ViewFoodItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B42CDD1A6E126700352A79 /* ViewFoodItemsViewController.m */; };
+		89B42CE01A6E126700352A79 /* ViewFoodItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B42CDE1A6E126700352A79 /* ViewFoodItemsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00E73741E3876E251A55A25C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		42038E281905CC8500EFB9F2 /* CreateFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateFoodViewController.h; sourceTree = "<group>"; };
 		42038E291905CC8600EFB9F2 /* CreateFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateFoodViewController.m; sourceTree = "<group>"; };
 		42038E2A1905CC8600EFB9F2 /* CreateFoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateFoodViewController.xib; sourceTree = "<group>"; };
@@ -132,8 +135,11 @@
 		42FDCDAA190081A10069CA4F /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
 		42FDCDAE190099D20069CA4F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		42FDCDAF190099D20069CA4F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		578AD54FDE708A6D37983667 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		89B42CDC1A6E126700352A79 /* ViewFoodItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFoodItemsViewController.h; sourceTree = "<group>"; };
+		89B42CDD1A6E126700352A79 /* ViewFoodItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFoodItemsViewController.m; sourceTree = "<group>"; };
+		89B42CDE1A6E126700352A79 /* ViewFoodItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewFoodItemsViewController.xib; sourceTree = "<group>"; };
 		D0BE779C19CD4CDE8E2C7F1C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F531F3EBD74E428F8432BD7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +199,7 @@
 				42FDCD79190052CC0069CA4F /* DPredictorTests */,
 				42FDCD53190052CC0069CA4F /* Frameworks */,
 				42FDCD52190052CC0069CA4F /* Products */,
-				F531F3EBD74E428F8432BD7C /* Pods.xcconfig */,
+				B88F69D5E2C863E47DFF5E72 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,8 +311,20 @@
 				42EE3506192DA0EA00CD85D1 /* EditUserViewController.h */,
 				42EE3507192DA0EA00CD85D1 /* EditUserViewController.m */,
 				42EE3508192DA0EA00CD85D1 /* EditUserViewController.xib */,
+				89B42CDC1A6E126700352A79 /* ViewFoodItemsViewController.h */,
+				89B42CDD1A6E126700352A79 /* ViewFoodItemsViewController.m */,
+				89B42CDE1A6E126700352A79 /* ViewFoodItemsViewController.xib */,
 			);
 			name = UserData;
+			sourceTree = "<group>";
+		};
+		B88F69D5E2C863E47DFF5E72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				00E73741E3876E251A55A25C /* Pods.debug.xcconfig */,
+				578AD54FDE708A6D37983667 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +409,7 @@
 				42D2CCC51903253600145247 /* User2ViewController.xib in Resources */,
 				42D2CCCB19032F3700145247 /* MealTypeViewController.xib in Resources */,
 				422CE05719047C580061217F /* AddFoodViewController.xib in Resources */,
+				89B42CE01A6E126700352A79 /* ViewFoodItemsViewController.xib in Resources */,
 				42FDCD61190052CC0069CA4F /* InfoPlist.strings in Resources */,
 				42038E2C1905CC8600EFB9F2 /* CreateFoodViewController.xib in Resources */,
 				425233C5190848AB00488E7C /* plusSign_black.png in Resources */,
@@ -443,7 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -453,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B42CDF1A6E126700352A79 /* ViewFoodItemsViewController.m in Sources */,
 				42038E2B1905CC8600EFB9F2 /* CreateFoodViewController.m in Sources */,
 				42FDCDB0190099D30069CA4F /* User.m in Sources */,
 				42FDCDAB190081A10069CA4F /* UserViewController.m in Sources */,
@@ -585,7 +605,7 @@
 		};
 		42FDCD84190052CC0069CA4F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F531F3EBD74E428F8432BD7C /* Pods.xcconfig */;
+			baseConfigurationReference = 00E73741E3876E251A55A25C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -599,7 +619,7 @@
 		};
 		42FDCD85190052CC0069CA4F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F531F3EBD74E428F8432BD7C /* Pods.xcconfig */;
+			baseConfigurationReference = 578AD54FDE708A6D37983667 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

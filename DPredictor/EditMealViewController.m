@@ -153,7 +153,7 @@
 }
 
 - (void)doneButtonPress{
-    _sugarLevel = [self.textField.text integerValue];
+    _sugarLevel = (int)[self.textField.text integerValue];
     if(_sugarLevel < 1 || _sugarLevel > 999){
         self.errorLabel.text = @"Blood glucose level must be a number between 0 and 999!";
         self.errorLabel.hidden = NO;
@@ -166,7 +166,7 @@
 }
 
 - (IBAction)predictButtonPress:(id)sender{
-    _sugarLevel = [self.textField.text integerValue];
+    _sugarLevel = (int)[self.textField.text integerValue];
     if(_sugarLevel < 1 || _sugarLevel > 999){
         self.errorLabel.text = @"Blood glucose level must be a number between 0 and 999!";
         self.errorLabel.hidden = NO;
@@ -260,7 +260,7 @@
         double currentIntegerAmt = floor(_selectedRecord.amount);
         double currentDecimalAmt = _selectedRecord.amount - currentIntegerAmt;
         
-        int index = [_numbers indexOfObject:[NSString stringWithFormat:@"%d", (int)currentIntegerAmt]];
+        NSInteger index = [_numbers indexOfObject:[NSString stringWithFormat:@"%d", (int)currentIntegerAmt]];
         if(index != NSNotFound){
             [self.pickerView selectRow:index inComponent:0 animated:YES];
         }
