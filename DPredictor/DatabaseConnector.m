@@ -98,6 +98,31 @@
     return meal;
 }
 
+- (NSArray *) getMeals{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *e = [NSEntityDescription entityForName:@"Meal"
+                                         inManagedObjectContext:self.context];
+    request.entity = e;
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(levelBefore > 0)"];
+    [request setPredicate:predicate];
+
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
+    
+    NSError *error;
+    NSArray *result = [self.context executeFetchRequest:request error:&error];
+    if (!result) {
+        [NSException raise:@"Fetch failed"
+                    format:@"Reason: %@", [error localizedDescription]];
+    }
+    return result;
+
+}
+
 - (Record *)createRecord{
     Record *record = [NSEntityDescription insertNewObjectForEntityForName:@"Record"
                                                inManagedObjectContext:self.context];
@@ -250,6 +275,10 @@
     NSEntityDescription *e = [NSEntityDescription entityForName:@"Food"
                                          inManagedObjectContext:self.context];
     request.entity = e;
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"item" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    [request setSortDescriptors:sortDescriptors];
     
     NSError *error;
     NSArray *result = [self.context executeFetchRequest:request error:&error];

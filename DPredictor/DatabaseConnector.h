@@ -34,6 +34,7 @@
 //Methods to do with Meal Entity
 - (Meal *)createMeal;
 - (double) getAverageCarbErrorForMealType:(NSString *)mealType;
+- (NSArray *) getMeals;
 
 //Methods to do with Record Entity
 - (Record *) createRecord;

@@ -162,7 +162,6 @@
     }
     self.textField.text = [NSString stringWithFormat:@"%d", _sugarLevel];
     [self clearInputPopups];
-    
 }
 
 - (IBAction)predictButtonPress:(id)sender{

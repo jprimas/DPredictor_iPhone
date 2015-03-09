@@ -14,7 +14,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="aoH-JG-6uH">
@@ -26,14 +26,16 @@
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dtT-WA-h5N">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="sectionIndexTrackingBackgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="s8f-yF-GHw"/>
                         <outlet property="delegate" destination="-1" id="su4-Fv-byj"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dtT-WA-h5N" secondAttribute="trailing" id="2cD-bT-XzH"/>
                 <constraint firstAttribute="trailing" secondItem="aoH-JG-6uH" secondAttribute="trailing" id="4y7-6b-4sg"/>
@@ -44,7 +46,9 @@
                 <constraint firstItem="dtT-WA-h5N" firstAttribute="top" secondItem="aoH-JG-6uH" secondAttribute="bottom" id="l2J-Mh-N5r"/>
                 <constraint firstItem="dtT-WA-h5N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zm2-aj-pxg"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <nil key="simulatedBottomBarMetrics"/>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="aoH-JG-6uH"/>

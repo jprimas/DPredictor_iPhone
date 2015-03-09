@@ -12,6 +12,7 @@
 #import "EditMealViewController.h"
 #import "DatabaseConnector.h"
 #import "Meal.h"
+#import "MealsViewController.h"
 
 @interface MenuViewController (){
 
@@ -72,6 +73,11 @@
         mealVC.newMeal = NO;
         [self.navigationController pushViewController:mealVC animated:YES];
     }
+}
+
+- (IBAction)showMeals:(id)sender{
+    MealsViewController *mealsVC = [[MealsViewController alloc] init];
+    [self.navigationController pushViewController:mealsVC animated:NO];
 }
 
 @end

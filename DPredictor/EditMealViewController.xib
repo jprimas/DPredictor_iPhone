@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditMealViewController">
@@ -22,26 +22,24 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current BG Level:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMw-3U-C6F">
-                    <rect key="frame" x="40" y="45" width="143" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current BG Level:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DMw-3U-C6F">
+                    <rect key="frame" x="40" y="45" width="137" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRp-Uz-uJp">
-                    <rect key="frame" x="191" y="41" width="89" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                </textField>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="34" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pbg-FV-IBe">
-                    <rect key="frame" x="0.0" y="110" width="320" height="305"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="34" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pbg-FV-IBe">
+                    <rect key="frame" x="0.0" y="101" width="320" height="314"/>
                     <color key="backgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                     <color key="sectionIndexTrackingBackgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="159" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FD-TE-DTz" customClass="BorderButton">
-                    <rect key="frame" x="80" y="442" width="160" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="159" placeholderIntrinsicHeight="30" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FD-TE-DTz" customClass="BorderButton">
+                    <rect key="frame" x="81" y="442" width="159" height="30"/>
                     <color key="backgroundColor" red="0.70518395659999999" green="0.77948331420000005" blue="0.90057200189999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="159" id="ch9-9c-Qbb"/>
+                    </constraints>
                     <state key="normal" title="Complete">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -49,22 +47,59 @@
                         <action selector="predictButtonPress:" destination="-1" eventType="touchUpInside" id="A2s-uu-h1R"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Blood Glucose level must be a number between 0 and 999!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="END-gi-Ih7">
-                    <rect key="frame" x="20" y="78" width="280" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blood Glucose level must be a number between 0 and 999!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="END-gi-Ih7">
+                    <rect key="frame" x="22" y="78" width="277" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" red="0.82517538265306123" green="0.11227719555037993" blue="0.13018799921045379" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LVf-sN-s35">
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVf-sN-s35">
                     <rect key="frame" x="0.0" y="342" width="320" height="162"/>
                     <color key="backgroundColor" red="0.71847401489999996" green="0.68428627890000004" blue="0.68886730409999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="162" id="UJZ-iY-C46"/>
+                    </constraints>
                 </pickerView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dl1-1i-fIG">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dl1-1i-fIG">
                     <rect key="frame" x="0.0" y="298" width="320" height="44"/>
                     <color key="backgroundColor" red="0.0" green="0.74117648599999997" blue="0.16078431900000001" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="i5j-ip-KU5"/>
+                    </constraints>
                 </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRp-Uz-uJp">
+                    <rect key="frame" x="185" y="41" width="89" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="89" id="5cS-AH-fW2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.87843143940000001" green="0.95294123890000004" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+            <constraints>
+                <constraint firstItem="DMw-3U-C6F" firstAttribute="centerY" secondItem="FRp-Uz-uJp" secondAttribute="centerY" id="7lu-Fe-oSt"/>
+                <constraint firstItem="DMw-3U-C6F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="AuE-ci-dck"/>
+                <constraint firstAttribute="centerX" secondItem="2FD-TE-DTz" secondAttribute="centerX" id="D9X-NW-4CF"/>
+                <constraint firstAttribute="centerX" secondItem="END-gi-Ih7" secondAttribute="centerX" id="Dq2-SH-US3"/>
+                <constraint firstItem="pbg-FV-IBe" firstAttribute="top" secondItem="END-gi-Ih7" secondAttribute="bottom" constant="11" id="Jok-73-IXf"/>
+                <constraint firstItem="Dl1-1i-fIG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kca-CQ-9vK"/>
+                <constraint firstAttribute="trailing" secondItem="Dl1-1i-fIG" secondAttribute="trailing" id="Ldn-Jg-8Dn"/>
+                <constraint firstItem="DMw-3U-C6F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="NGy-bj-hZb"/>
+                <constraint firstAttribute="trailing" secondItem="Dl1-1i-fIG" secondAttribute="trailing" id="NqK-Ga-vi9"/>
+                <constraint firstItem="Dl1-1i-fIG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pt9-dF-GDR"/>
+                <constraint firstAttribute="bottom" secondItem="LVf-sN-s35" secondAttribute="bottom" id="SYu-35-hsv"/>
+                <constraint firstItem="FRp-Uz-uJp" firstAttribute="leading" secondItem="DMw-3U-C6F" secondAttribute="trailing" constant="8" id="XrB-He-BOn"/>
+                <constraint firstItem="LVf-sN-s35" firstAttribute="top" secondItem="Dl1-1i-fIG" secondAttribute="bottom" id="fEM-ms-VQL"/>
+                <constraint firstItem="2FD-TE-DTz" firstAttribute="top" secondItem="pbg-FV-IBe" secondAttribute="bottom" constant="27" id="fZd-sC-qMe"/>
+                <constraint firstItem="END-gi-Ih7" firstAttribute="top" secondItem="FRp-Uz-uJp" secondAttribute="bottom" constant="7" id="hXF-3q-URl"/>
+                <constraint firstItem="pbg-FV-IBe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nEr-9e-rVV"/>
+                <constraint firstAttribute="trailing" secondItem="pbg-FV-IBe" secondAttribute="trailing" id="ngn-5e-cnK"/>
+                <constraint firstItem="LVf-sN-s35" firstAttribute="top" secondItem="Dl1-1i-fIG" secondAttribute="bottom" id="sp4-l0-6yL"/>
+                <constraint firstItem="LVf-sN-s35" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vGB-tt-Q19"/>
+                <constraint firstAttribute="bottom" secondItem="2FD-TE-DTz" secondAttribute="bottom" constant="32" id="vVQ-sd-B7m"/>
+                <constraint firstAttribute="trailing" secondItem="LVf-sN-s35" secondAttribute="trailing" id="zfD-8O-9W9"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
         </view>
     </objects>

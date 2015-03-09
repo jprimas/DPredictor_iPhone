@@ -56,6 +56,12 @@
 		7FA0419FC4704D809A91D90A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BE779C19CD4CDE8E2C7F1C /* libPods.a */; };
 		89B42CDF1A6E126700352A79 /* ViewFoodItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B42CDD1A6E126700352A79 /* ViewFoodItemsViewController.m */; };
 		89B42CE01A6E126700352A79 /* ViewFoodItemsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B42CDE1A6E126700352A79 /* ViewFoodItemsViewController.xib */; };
+		89E019921AACF8FC00259A33 /* MealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E019901AACF8FC00259A33 /* MealsViewController.m */; };
+		89E019931AACF8FC00259A33 /* MealsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E019911AACF8FC00259A33 /* MealsViewController.xib */; };
+		89E019951AAD06A700259A33 /* MealDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E019941AAD06A700259A33 /* MealDataTableViewCell.xib */; };
+		89E019981AAD0AF600259A33 /* MealDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89E019971AAD0AF600259A33 /* MealDataTableViewCell.m */; };
+		89F6A3371A89CD5A00D967C7 /* EditFoodItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F6A3351A89CD5A00D967C7 /* EditFoodItemViewController.m */; };
+		89F6A3381A89CD5A00D967C7 /* EditFoodItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89F6A3361A89CD5A00D967C7 /* EditFoodItemViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +145,15 @@
 		89B42CDC1A6E126700352A79 /* ViewFoodItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFoodItemsViewController.h; sourceTree = "<group>"; };
 		89B42CDD1A6E126700352A79 /* ViewFoodItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFoodItemsViewController.m; sourceTree = "<group>"; };
 		89B42CDE1A6E126700352A79 /* ViewFoodItemsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewFoodItemsViewController.xib; sourceTree = "<group>"; };
+		89E0198F1AACF8FC00259A33 /* MealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealsViewController.h; sourceTree = "<group>"; };
+		89E019901AACF8FC00259A33 /* MealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealsViewController.m; sourceTree = "<group>"; };
+		89E019911AACF8FC00259A33 /* MealsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealsViewController.xib; sourceTree = "<group>"; };
+		89E019941AAD06A700259A33 /* MealDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MealDataTableViewCell.xib; sourceTree = "<group>"; };
+		89E019961AAD0AF600259A33 /* MealDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealDataTableViewCell.h; sourceTree = "<group>"; };
+		89E019971AAD0AF600259A33 /* MealDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealDataTableViewCell.m; sourceTree = "<group>"; };
+		89F6A3341A89CD5A00D967C7 /* EditFoodItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFoodItemViewController.h; sourceTree = "<group>"; };
+		89F6A3351A89CD5A00D967C7 /* EditFoodItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFoodItemViewController.m; sourceTree = "<group>"; };
+		89F6A3361A89CD5A00D967C7 /* EditFoodItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditFoodItemViewController.xib; sourceTree = "<group>"; };
 		D0BE779C19CD4CDE8E2C7F1C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -240,6 +255,7 @@
 				42FDCD9319005E750069CA4F /* Entities */,
 				42FDCDAD190084400069CA4F /* UserData */,
 				42D2CCC619032F0800145247 /* AddMeal */,
+				89E0198E1AACF8A400259A33 /* ViewMeals */,
 				42038E2D1905D16400EFB9F2 /* KeyboardToolbarView.h */,
 				42038E2E1905D16400EFB9F2 /* KeyboardToolbarView.m */,
 				42F180421900E5DB00706BFE /* BorderButton.h */,
@@ -314,8 +330,24 @@
 				89B42CDC1A6E126700352A79 /* ViewFoodItemsViewController.h */,
 				89B42CDD1A6E126700352A79 /* ViewFoodItemsViewController.m */,
 				89B42CDE1A6E126700352A79 /* ViewFoodItemsViewController.xib */,
+				89F6A3341A89CD5A00D967C7 /* EditFoodItemViewController.h */,
+				89F6A3351A89CD5A00D967C7 /* EditFoodItemViewController.m */,
+				89F6A3361A89CD5A00D967C7 /* EditFoodItemViewController.xib */,
 			);
 			name = UserData;
+			sourceTree = "<group>";
+		};
+		89E0198E1AACF8A400259A33 /* ViewMeals */ = {
+			isa = PBXGroup;
+			children = (
+				89E0198F1AACF8FC00259A33 /* MealsViewController.h */,
+				89E019901AACF8FC00259A33 /* MealsViewController.m */,
+				89E019911AACF8FC00259A33 /* MealsViewController.xib */,
+				89E019961AAD0AF600259A33 /* MealDataTableViewCell.h */,
+				89E019971AAD0AF600259A33 /* MealDataTableViewCell.m */,
+				89E019941AAD06A700259A33 /* MealDataTableViewCell.xib */,
+			);
+			name = ViewMeals;
 			sourceTree = "<group>";
 		};
 		B88F69D5E2C863E47DFF5E72 /* Pods */ = {
@@ -411,8 +443,11 @@
 				422CE05719047C580061217F /* AddFoodViewController.xib in Resources */,
 				89B42CE01A6E126700352A79 /* ViewFoodItemsViewController.xib in Resources */,
 				42FDCD61190052CC0069CA4F /* InfoPlist.strings in Resources */,
+				89E019951AAD06A700259A33 /* MealDataTableViewCell.xib in Resources */,
+				89F6A3381A89CD5A00D967C7 /* EditFoodItemViewController.xib in Resources */,
 				42038E2C1905CC8600EFB9F2 /* CreateFoodViewController.xib in Resources */,
 				425233C5190848AB00488E7C /* plusSign_black.png in Resources */,
+				89E019931AACF8FC00259A33 /* MealsViewController.xib in Resources */,
 				42FDCDAC190081A10069CA4F /* UserViewController.xib in Resources */,
 				42FDCDA719007C510069CA4F /* MenuViewController.xib in Resources */,
 				42D2CCD019032F9A00145247 /* EditMealViewController.xib in Resources */,
@@ -473,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89B42CDF1A6E126700352A79 /* ViewFoodItemsViewController.m in Sources */,
+				89E019981AAD0AF600259A33 /* MealDataTableViewCell.m in Sources */,
 				42038E2B1905CC8600EFB9F2 /* CreateFoodViewController.m in Sources */,
 				42FDCDB0190099D30069CA4F /* User.m in Sources */,
 				42FDCDAB190081A10069CA4F /* UserViewController.m in Sources */,
@@ -480,6 +516,8 @@
 				42EE3509192DA0EA00CD85D1 /* EditUserViewController.m in Sources */,
 				42D2CCCA19032F3700145247 /* MealTypeViewController.m in Sources */,
 				42FDCD8E19005B720069CA4F /* Meal.m in Sources */,
+				89F6A3371A89CD5A00D967C7 /* EditFoodItemViewController.m in Sources */,
+				89E019921AACF8FC00259A33 /* MealsViewController.m in Sources */,
 				42038E2F1905D16400EFB9F2 /* KeyboardToolbarView.m in Sources */,
 				42038E3319078CE700EFB9F2 /* PredictionViewController.m in Sources */,
 				42D2CCCF19032F9A00145247 /* EditMealViewController.m in Sources */,

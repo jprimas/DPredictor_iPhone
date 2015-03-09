@@ -11,16 +11,17 @@
 #import "DatabaseConnector.h"
 #import "Record.h"
 #import "Food.h"
+#import "EditFoodItemViewController.h"
 
 
-@interface ViewFoodItemsViewController () {
-    NSArray *_allFoods;
-    NSArray *_searchResults;
-}
+@interface ViewFoodItemsViewController ()
 
+@property (nonatomic, strong) NSMutableDictionary *batchedFoods;
+@property (nonatomic, strong) NSArray *letters;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) UISearchBar *searchBar;
-@property (nonatomic, strong) NSMutableArray *records; //placeholder for data being displayed at the moment
+@property (nonatomic, strong) NSArray *allFoods;
+@property (nonatomic, strong) NSArray *searchResults;
 
 @end
 
@@ -54,27 +55,42 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = 40;
     self.tableView.tintColor = [UIColor colorWithRed:209/255.0 green:238/255.0 blue:216/255.0 alpha:1];
+    self.tableView.sectionIndexColor = [UIColor blackColor];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [self batchFoods];
     
-    /*
-    UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
-    [keyboardToolbar sizeToFit];
-    [keyboardToolbar setBarTintColor:[UIColor colorWithRed:170/255.0 green:175/255.0 blue:181/255.0 alpha:1]];
-    KeyboardToolbarView *keyboardToolbarView = [[KeyboardToolbarView alloc] initWithFrame:keyboardToolbar.frame];
-    [keyboardToolbarView.doneButton addTarget:self action:@selector(doneButtonPress) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithCustomView:keyboardToolbarView];
-    
-    [keyboardToolbar setItems:[NSArray arrayWithObjects:doneButton, nil]];
-    self.textField.inputAccessoryView = keyboardToolbar;
-     */
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
 }
 
 - (void)backButtonPress{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)batchFoods{
+    _batchedFoods = [[NSMutableDictionary alloc] init];
+    
+    //Batch all food by the starting letter
+    for (int i = 0; i < [_allFoods count]; i++ ) {
+        NSString *name = ((Food*)_allFoods[i]).item;
+        NSString *letter = [[name substringToIndex:1] uppercaseString];
+        if([_batchedFoods objectForKey:letter] != nil){
+            NSMutableArray * arr = [_batchedFoods objectForKey:letter];
+            [arr addObject:_allFoods[i]];
+        } else {
+            NSMutableArray * arr = [[NSMutableArray alloc] initWithObjects: _allFoods[i], nil];
+            [_batchedFoods setValue:arr forKey:letter];
+        }
+    }
+    
+    _letters = [_batchedFoods allKeys];
+    _letters = [_letters sortedArrayUsingComparator:^(NSString *firstObject, NSString *secondObject) {
+        return [firstObject caseInsensitiveCompare:secondObject];
+    }];
 }
 
 
@@ -84,7 +100,11 @@
 
 //Number of sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    } else {
+        return [_letters count];
+    }
 }
 
 //Creates the header for the tableview section
@@ -92,18 +112,18 @@
 {
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 10)];
     [headerView setBackgroundColor:[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:.9]];
-    
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, tableView.bounds.size.width, 33)];
+    UILabel *headerLabel;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
+        headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, tableView.bounds.size.width, 33)];
         headerLabel.text = @"Search Results";
-        _records = [NSMutableArray arrayWithArray:_searchResults];
+        headerLabel.textAlignment = NSTextAlignmentCenter;
+        headerLabel.font = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0  ];
     } else {
-        headerLabel.text = @"All Foods";
-        _records = [NSMutableArray arrayWithArray:_allFoods];
+        headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(3, 0, tableView.bounds.size.width, 22)];
+        headerLabel.text = [_letters objectAtIndex:section];
+        headerLabel.textAlignment = NSTextAlignmentLeft;
+        headerLabel.font = [UIFont fontWithName: @"Helvetica-Neue" size: 12.0  ];
     }
-    headerLabel.font = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0  ];
-    headerLabel.textAlignment = NSTextAlignmentLeft;
-
     [headerView addSubview:headerLabel];
     return headerView;
 }
@@ -113,21 +133,33 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [_searchResults count];
     } else {
-        return [_allFoods count];
+        NSString *letter = [[_letters objectAtIndex:section] uppercaseString];
+        return [[_batchedFoods objectForKey:letter] count];
     }
 }
 
 //Height of section header
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 44;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 44;
+    } else {
+        return 22;
+    }
 }
 
 //Handler when a row is selected from tableView
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    Record *r = _records[indexPath.row];
-    //Go to edit page??
+    Food *food = nil;
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        food = _searchResults[indexPath.row];
+    } else{
+        NSString *letter = [[_letters objectAtIndex:indexPath.section] uppercaseString];
+        food = [_batchedFoods objectForKey:letter][indexPath.row];
+    }
+    EditFoodItemViewController *editFoodItemVC = [[EditFoodItemViewController alloc] init];
+    editFoodItemVC.food = food;
+    [self.navigationController pushViewController:editFoodItemVC animated:YES];
 }
 
 //Formats cells of tableview
@@ -146,15 +178,25 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         f = _searchResults[indexPath.row];
     } else {
-        f = _allFoods[indexPath.row];
+        NSString *letter = [[_letters objectAtIndex:indexPath.section] uppercaseString];
+        f = [_batchedFoods objectForKey:letter][indexPath.row];
     }
     cell.textLabel.text = f.item;
     cell.textLabel.font  = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0 ];
     cell.detailTextLabel.text = [@"   " stringByAppendingString:f.quantifier];;
     cell.textLabel.font  = [UIFont fontWithName: @"Helvetica-Neue" size: 14.0 ];
     cell.backgroundColor = [UIColor colorWithRed:218/255.0 green:241/255.0 blue:226/255.0 alpha:1];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
     
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return _letters;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [_letters indexOfObject:title];
 }
 
 /////////////////////////////
