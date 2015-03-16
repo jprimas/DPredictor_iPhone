@@ -35,7 +35,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _quantifiers = [NSArray arrayWithObjects:@"Grams", @"Ounces", @"Milliliters", @"Teaspoons", @"Tablespoons", @"cups", @"Pints", @"Hampfle", @"Tasse", nil];
+        _quantifiers = [NSArray arrayWithObjects:@"Grams", @"Ounces", @"Milliliters", @"Teaspoons", @"Tablespoons", @"Cups", @"Pints", @"Hampfle", @"Tasse", nil];
         _quantifierIndex = 0;
     }
     return self;
@@ -105,7 +105,11 @@
         self.errorLabel.text = @"The amount must be larger then 0.";
     }
     double carbs = [_carbCountInput.text doubleValue];
-    if(carbs < 0){
+    NSString *carbsStr = _carbCountInput.text;
+    if(carbsStr == nil || carbsStr.length == 0){
+        sanatizedInput = false;
+        self.errorLabel.text = @"Please enter a valid predicted carb count.";
+    }else if (carbs < 0) {
         sanatizedInput = false;
         self.errorLabel.text = @"The predicted carb count cannot be negative.";
     }

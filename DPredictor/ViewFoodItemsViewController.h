@@ -10,5 +10,7 @@
 
 @interface ViewFoodItemsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, weak) IBOutlet UILabel *noFoodsLabel;
+
 
 @end

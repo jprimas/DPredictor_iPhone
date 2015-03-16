@@ -12,6 +12,7 @@
 @interface MealsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UILabel *noMealsLabel;
 @property (nonatomic, strong) NSArray *meals;
 
 

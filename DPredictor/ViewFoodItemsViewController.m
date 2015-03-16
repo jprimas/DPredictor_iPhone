@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSMutableDictionary *batchedFoods;
 @property (nonatomic, strong) NSArray *letters;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, weak) UISearchBar *searchBar;
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSArray *allFoods;
 @property (nonatomic, strong) NSArray *searchResults;
 
@@ -60,6 +60,17 @@
         self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    if ([_allFoods count] <= 0) {
+        self.tableView.hidden = YES;
+        self.searchBar.hidden = YES;
+        self.noFoodsLabel.hidden = NO;
+    } else {
+        self.tableView.hidden = NO;
+        self.searchBar.hidden = NO;
+        self.noFoodsLabel.hidden = YES;
+    }
+    
     [self batchFoods];
     
     if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MealsViewController">
             <connections>
+                <outlet property="noMealsLabel" destination="0sn-p7-baU" id="1mK-qO-JXv"/>
                 <outlet property="tableView" destination="rJ1-xD-sqn" id="lEZ-me-9Xd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,16 +24,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                     </variation>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have entered no meals yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sn-p7-baU">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="74" id="rFk-hs-K9O"/>
+                        <constraint firstAttribute="width" constant="240" id="ypc-Rq-ejr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="rFk-hs-K9O"/>
+                            <exclude reference="ypc-Rq-ejr"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="rFk-hs-K9O"/>
+                            <include reference="ypc-Rq-ejr"/>
+                        </mask>
+                    </variation>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="0sn-p7-baU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="133" id="6hM-gc-qRl"/>
+                <constraint firstAttribute="centerX" secondItem="0sn-p7-baU" secondAttribute="centerX" id="m8b-hC-hP3"/>
+            </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="rJ1-xD-sqn"/>
+                    <exclude reference="0sn-p7-baU"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="6hM-gc-qRl"/>
+                    <exclude reference="m8b-hC-hP3"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="rJ1-xD-sqn"/>
+                    <include reference="0sn-p7-baU"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="6hM-gc-qRl"/>
+                    <include reference="m8b-hC-hP3"/>
                 </mask>
             </variation>
         </view>

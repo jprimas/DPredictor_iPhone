@@ -44,6 +44,13 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     _meals = [[DatabaseConnector getSharedDBAccessor] getMeals];
+    if([_meals count] <= 0){
+        _noMealsLabel.hidden = NO;
+        _tableView.hidden = YES;
+    } else {
+        _noMealsLabel.hidden = YES;
+        _tableView.hidden = NO;
+    }
 }
 
 - (void)backButtonPress{
@@ -73,7 +80,7 @@
 //Handler when a row is selected from tableView
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    Meal *meal = _meals[indexPath.row];
+    //Meal *meal = _meals[indexPath.row];
 }
 
 //Formats cells of tableview
@@ -97,7 +104,12 @@
     cell.totalCarbsLabel.text = [NSString stringWithFormat:@"%d carbs", (int)(meal.totalCarbs + 0.5) ];
     cell.insulinTakenLabel.text = [NSString stringWithFormat:@"%d units", meal.unitsTaken];
     cell.bloodSugarLevelBeforeLabel.text = [NSString stringWithFormat:@"%d mg/dL", meal.levelBefore ];
-    cell.bloodSugarLevelAfterLabel.text = [NSString stringWithFormat:@"%d mg/dL", meal.levelAfter];
+    if (meal.levelAfter <= 0) {
+        cell.bloodSugarLevelAfterLabel.hidden = YES;
+        cell.bloodSugarLevelCaret.hidden = YES;
+    } else {
+        cell.bloodSugarLevelAfterLabel.text = [NSString stringWithFormat:@"%d mg/dL", meal.levelAfter];
+    }
     return cell;
     
 }

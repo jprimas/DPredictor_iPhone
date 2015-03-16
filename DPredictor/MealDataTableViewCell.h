@@ -15,5 +15,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *insulinTakenLabel;
 @property (nonatomic, weak) IBOutlet UILabel *bloodSugarLevelBeforeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *bloodSugarLevelAfterLabel;
+@property (nonatomic, weak) IBOutlet UILabel *bloodSugarLevelCaret;
 
 @end

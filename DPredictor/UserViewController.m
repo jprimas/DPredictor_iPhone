@@ -49,7 +49,6 @@ UILabel *clarificationLabel;
     //self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
     self.clarificationLabel.text = @"Input the amount of carbs that one unit of insulin compensates for. This can be your best estimate. The algorithm builds off this value.";
     [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
-    self.inputField.text = [NSString stringWithFormat:@"%i", (int)self.user.carbsPerUnit];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -65,7 +64,11 @@ UILabel *clarificationLabel;
 }
 
 - (IBAction)nextButtonPress:(id)sender{
-    self.user.carbsPerUnit =  [self.inputField.text doubleValue];
+    double temp = [self.inputField.text doubleValue];
+    if (temp <= 0 ) {
+        temp  = 15;
+    }
+    self.user.carbsPerUnit =  temp;
     User2ViewController *user2VC = [[User2ViewController alloc] init];
     [self.navigationController pushViewController:user2VC animated:YES];
 }
